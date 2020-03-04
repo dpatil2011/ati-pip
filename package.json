@@ -9,7 +9,7 @@
     "ati-reduxform-web": "1.0.8",
     "ati-web-security": "1.0.30",
     "axios": "0.18.0",
-    "bootstrap": "4.0.0",
+    "bootstrap": "4.4.1",
     "connected-react-router": "5.0.1",
     "draftjs-to-html": "0.8.4",
     "electron-is-dev": "^0.3.0",
