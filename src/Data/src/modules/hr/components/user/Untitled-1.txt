@@ -1,0 +1,34 @@
+
+     
+     var f_name=$('#faname').val();
+     var f_dob=this.state.fdob;
+     var f_adhar=$('#f_adhar').val();
+
+     var m_name=$('#maname').val();
+     var m_dob=this.state.mdob;
+     var m_adhar=$('#m_adhar').val();
+
+     var bs1_name=$('#bs1').val();
+     var bs1_dob=this.state.bs1dob;
+     var bs1_adhar=$('#bs1adhar').val();
+
+     var bs2_name=$('#bs2').val();
+     var bs2_dob=this.state.bs2dob;
+     var bs2_adhar=$('#bs2adhar').val();
+
+     var bs3_name=$('#bs3').val();
+     var bs3_dob=this.state.bs3dob;
+     var bs3_adhar=$('#bs3adhar').val();
+    
+     var marital_status = this.state.married;
+     var dom=this.state.dom;
+     var spouce_name=$('#spname').val();
+     var spouce_adhar=$('#spadhar').val();
+
+     var c_address=$('#cadd').val();
+     var c_pcode=$('#cpin').val();
+     var c_city=$('#ccity').val();
+
+     var p_address=$('#padd').val();
+     var p_pcode=$('#ppin').val();
+     var p_city=$('#pcity').val();

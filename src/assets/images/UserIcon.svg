@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:none}.cls-1{stroke:#707070}.cls-2{clip-path:url(#clip-path)}.cls-3,.cls-4{stroke:#000;stroke-linecap:round;stroke-width:2px}.cls-4{fill:#fff}
+        </style>
+        <clipPath id="clip-path">
+            <path id="Rectangle_1902" d="M0 0h25v25H0z" class="cls-1" data-name="Rectangle 1902" transform="translate(18 40)"/>
+        </clipPath>
+    </defs>
+    <g id="UserIcon" class="cls-2" transform="translate(-18 -40)">
+        <g id="Group_1155" data-name="Group 1155" transform="translate(-30.55 -251.12)">
+            <path id="Path_4" d="M5.5.12c3.038 0 5.516 1.908 5.516 5.2S8.539 11.927 5.5 11.927.018 8.609.018 5.319 2.464.12 5.5.12z" class="cls-3" data-name="Path 4" transform="translate(56 294)"/>
+            <path id="Path_747" d="M20.952 17.481a10.852 10.852 0 0 1-9.842 6.895c-4.279 0-7.986-2.762-9.919-7.072" class="cls-4" data-name="Path 747" transform="rotate(180 36.251 165.212)"/>
+        </g>
+    </g>
+</svg>

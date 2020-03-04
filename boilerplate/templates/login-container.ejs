@@ -1,0 +1,29 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Login from '../component/<%=func._.kebabCase(name,{pascalCase:true})%>-login';
+import { authenticate } from './../store/login-action';
+
+export class <%=func.camelCase(name,{pascalCase:true})%>LoginPage extends Component {
+  static propTypes = {
+    prop: PropTypes
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+          <<%=func.camelCase(name,{pascalCase:true})%>Login {...this.props}/>
+      </React.Fragment>
+    )
+  }
+}
+
+const mapStateToProps = (state) => ({
+  ...state.login
+})
+
+const mapActionToProps = () => ({
+    onSubmit : authenticate, 
+});
+
+export default connect(mapStateToProps, mapActionToProps())(<%=func.camelCase(name,{pascalCase:true})%>LoginPage)

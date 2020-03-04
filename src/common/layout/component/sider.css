@@ -1,0 +1,82 @@
+.container-drawer{
+    left: 19% !important;
+}
+
+.container-drawer .ant-drawer-header {
+    background-color: #2a2e43 !important;
+}
+
+.container-drawer .ant-drawer-title {
+    color: #ffffff;
+    font-family: 'Avenir Next LT Pro Demi';
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: 0.1px;
+}
+
+.container-drawer .ant-drawer-content {
+    background-color: #2a2e43 !important;
+}
+
+.container-drawer-collapsed {
+    left: 120px !important;
+}
+
+.container-drawer-collapsed .ant-drawer-header {
+    background-color: #2a2e43 !important;
+}
+
+.container-drawer-collapsed .ant-drawer-title {
+    color: #ffffff;
+    font-family: 'Avenir Next LT Pro Demi';
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: 0.1px;
+}
+
+.container-drawer-collapsed .ant-drawer-content {
+    background-color: #2a2e43 !important;
+}
+
+.container-drawer .ant-drawer-body {
+    padding: unset;
+}
+
+.container-drawer-collapsed .ant-drawer-body {
+    padding: unset;
+}
+
+.drawer-navigation-left {
+    display: flex;
+    padding: 20px;
+}
+
+.drawer-title {
+    font-family: 'Avenir Next LT Pro Demi';
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: var(--white);
+    padding-left: 18px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.ant-drawer-body {
+    font-size: 12px;
+}
+
+.menu-drawer {
+    padding-top: 15px;
+}

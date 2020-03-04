@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22.75" height="23.902" viewBox="0 0 22.75 23.902">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-3{fill:#fff;stroke:#707070;stroke-width:2px}.cls-2,.cls-3{fill:none}.cls-3{stroke-linecap:round}
+        </style>
+    </defs>
+    <g id="Date" transform="translate(-33.109 -36.5)">
+        <rect id="Rectangle_1578" width="20.75" height="20.75" class="cls-1" data-name="Rectangle 1578" rx="5" transform="translate(34.109 38.653)"/>
+        <path id="Line_59" d="M0 0h20.75" class="cls-2" data-name="Line 59" transform="translate(34.493 45.185)"/>
+        <path id="Line_60" d="M0 0h2.946" class="cls-3" data-name="Line 60" transform="translate(39.77 49.796)"/>
+        <path id="Line_64" d="M0 3.074V0" class="cls-3" data-name="Line 64" transform="translate(41.41 37.5)"/>
+        <path id="Line_65" d="M0 3.074V0" class="cls-3" data-name="Line 65" transform="translate(47.558 37.5)"/>
+        <path id="Line_62" d="M0 0h2.946" class="cls-3" data-name="Line 62" transform="translate(39.77 53.639)"/>
+        <path id="Line_61" d="M0 0h2.946" class="cls-3" data-name="Line 61" transform="translate(47.02 49.796)"/>
+        <path id="Line_63" d="M0 0h2.946" class="cls-3" data-name="Line 63" transform="translate(47.02 53.639)"/>
+    </g>
+</svg>

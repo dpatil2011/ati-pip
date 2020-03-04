@@ -1,0 +1,39 @@
+/**
+* This data-device component is used to create reports about device data.
+* Which one there is a function to know dataDeviceReport, loadingDeviceReport, hasErrorDevice and deviceErrors.
+*/
+
+import React, {Component} from 'react';
+import { AtiPieChart, AtiSpinner } from 'ati-react-web';
+import './../style/style.css';
+
+class DeviceReport extends Component{
+
+    componentWillMount() {
+        const {getDeviceReport} = this.props;
+        if(getDeviceReport)getDeviceReport();
+    }
+
+    render(){
+        const {dataDeviceReport, loadingDeviceReport, hasErrorDevice, deviceErrors} = this.props;
+        return(
+                <AtiSpinner
+                    spinning={loadingDeviceReport}
+                    tip="fetching data.."
+                    wrapperClassName="wrapper-loading-widget"
+                >
+                    <AtiPieChart
+                        dataSource={dataDeviceReport}
+                        width={300}
+                        height={300}
+                        cx={90}
+                        cy={100}
+                        innerRadius={35}
+                        outerRadius={55}
+                    />
+                </AtiSpinner>
+        );
+    }
+}
+
+export default DeviceReport;

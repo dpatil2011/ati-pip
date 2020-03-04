@@ -1,0 +1,228 @@
+.modal-body-full {
+  width: 83px;
+  height: 83px;
+  border-radius: 50px;
+}
+.modal-body {
+  width: 626px;
+  height: 825px;
+  background-color: "#ffffff";
+}
+.close-modal-icon {
+  cursor: pointer;
+  color: #bababa;
+  font-size: 28px;
+  font-weight: bold;
+}
+.margin-top-5 {
+  margin-top: 30px;
+  margin-left: 120px;
+}
+.margin-top-11 {
+  margin-top: 30px;
+}
+.padding-3-3-2-3 {
+  padding: 0.5% 3% 2% 3%;
+}
+.text-style {
+  width: 220px;
+  height: 29px;
+  font-family: AvenirNextLTPro;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.avatar-style {
+  margin-left: 180px;
+}
+.avstyle {
+  height: 83px;
+  width: 83px;
+  border-radius: 50px;
+  margin-top: 30px;
+}
+.text-style-aceng{
+  width: 87px;
+  height: 16px;
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #2a2e43;
+}
+.margin-top-6 {
+  margin-top: 10.6px;
+  margin-left: 180px;
+}
+.text-style-tarik{
+  width: 62px;
+  height: 13px;
+  font-family: AvenirNextLTPro;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.margin-top-7 {
+  margin-left: 190px;
+}
+.margin-top-8 {
+  margin-left: 175px;
+}
+.text-style-number{
+  width: 100px;
+  height: 100px;
+  font-family: AvenirNextLTPro-Medium;
+  font-size: 84px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.19;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.bellstyle{
+  margin-top: 30px;
+  width: 95.9px;
+  height: 95.9px;
+  object-fit: contain;
+}
+.margin-left-1{
+  margin-left: 25px;
+}
+.transferstyle{
+  margin-left: 180px;
+  margin-top: 30px;
+  width: 95.9px;
+  height: 95.9px;
+  object-fit: contain;
+}
+.text-style-panggil{
+  margin-left: 25px;
+  width: 48px;
+  height: 16px;
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.text-style-panggil1{
+  margin-left: 200px;
+  width: 48px;
+  height: 16px;
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.groupstyle{
+  width: 39.1px;
+  height: 39.1px;
+  object-fit: contain;
+  margin-left: 186px;
+  margin-top: -10px;
+}
+.group-style-number{
+  width: 18px;
+  height: 34px;
+  margin-left: 8.5px;
+  font-family: AvenirNextLTPro;
+  font-size: 28px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #28a2ab;
+}
+.text-style-menun{
+  margin-left: 150px;
+  width: 121px;
+  height: 16px;
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.arrow-modal-icon{
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 5px;
+  color: #000000;
+}
+
+.content-table {
+  width: 470px;
+  border: solid #caced5 1px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  padding-bottom: 10px !important;
+}
+.content-table th{
+  font-family: AvenirNextLTPro-Demi;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+.content-table tr{
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.ant-pagination-prev{
+  width: 60px;
+}
+.ant-pagination-item{
+  width: 50px;
+}
+.ant-pagination-next{
+  width: 60px;
+}
+.table-button{
+  width: 71px;
+  height: 25px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+}

@@ -1,0 +1,37 @@
+/**
+* This component is part of the widget which is a base widget.
+* And is used to accommodate other widgets that will be shown.
+*/
+
+import React, { Component } from 'react';
+import {Icon, Row, Col} from 'antd';
+class Widget extends Component {
+    render() {
+        const { backgroundColor, icon, title, value } = this.props;
+        return(
+            <div className = "dashboard-item shadow" style = {{backgroundColor, color: 'white'}}>
+                <Icon
+                    type={icon}
+                    theme="filled"
+                    style={{ fontSize: '60px', margin: '15px', float: 'left'}} 
+                />
+                <div style={
+                        {float: 'right', paddingTop: '15px', paddingRight: '10px', textAlign: 'right'}
+                    }>
+                    <Row gutter={24}>
+                        <Col span={24}>
+                            <span style={{fontWeight: 100}}>{title}</span>
+                        </Col>
+                    </Row>
+                    <Row gutter={24}>
+                        <Col span={24}>
+                            <span style={{fontWeight: 'bold', fontSize: '20px'}}>{value}</span>
+                        </Col>
+                    </Row>
+                </div>
+            </div>
+        )
+    }
+}
+
+export default Widget;

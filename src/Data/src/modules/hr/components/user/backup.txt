@@ -1,0 +1,702 @@
+import React, { Component } from 'react';
+import 'font-awesome/css/font-awesome.min.css';
+import Nationality from './Form/Nationality';
+import BloodGroup from './Form/BloodGroup';
+import {AtiForm,AtiFormItem,AtiCheckbox,AtiDatePicker,AtiAlertBox,AtiCollapse,AtiRadioButton, AtiRadioItem,AtiRadioButtonItem} from 'ati-react-web';
+import {Input,Button,} from 'antd';
+import $ from 'jquery';
+import axios from 'axios';
+import NationalityList from './Form/Nationality';
+
+class Form extends React.Component {
+    constructor(props){
+        super(props);
+        
+        this.state={
+          dob:null,
+          gender : 'male',
+          maried:2,
+          add:false,
+          off:false,
+          isAlertOpen:false
+        };
+      }
+ render(){
+    const onChange1 = (e) => {
+        console.log('radio checked', e.target.value);
+        this.setState({
+            gender: e.target.value,
+        });
+    }
+
+ const panel1=()=>{
+    return <div className="row">
+       <div className="form-group col-md-12">
+ <label>Gender :</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <AtiRadioButton 
+            name = "radio-group"
+            value = {this.state.value1} 
+            events={
+                {onChange:onChange1}
+            }
+        >
+            <AtiRadioItem value = "male">Male</AtiRadioItem>
+            <AtiRadioItem value = "female">Female</AtiRadioItem>
+            
+        </AtiRadioButton> 
+                </div>
+                <div className="form-group col-md-6">
+                <AtiDatePicker 
+        
+        events={
+            {
+                onDateChange:(e)=>{
+                     this.setState({
+                         udob:e,
+                     })
+                }
+            }
+        }
+        
+        timeFormat={false}
+        dateFormat="YYYY-DD-MM"
+        input= {true}
+        closeOnSelect={false}
+        placeholder="Date of birth"
+        readonly = {false}
+      >
+      </AtiDatePicker>
+      </div>
+      <div className="form-group col-md-6">
+                <AtiFormItem className="form-control" id = "mbirthplace" name = "mbirthplace"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "birthplace"
+                                type='text'
+                                placeholder='Birth place' />
+                </AtiFormItem>
+        </div>
+            <div className="form-group col-md-6">
+                
+            <AtiFormItem className="form-control" id = "mfname" name = "mfname"
+                              config={{"rules": [{"required": true, "message": "Please input your first name!"}]}}
+                              labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                              wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                              <Input 
+                              value={this.state.fname}
+                              onChange={(e)=>{this.setState({fname:e.target.value})}}   
+                              id = "fname"
+                              type='text'
+                              placeholder='First Name' />
+            </AtiFormItem>
+            </div>
+            <div className="form-group col-md-6">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                type='text'
+                                placeholder='Last Name' />
+                </AtiFormItem>
+            </div>
+            
+                <div className="form-group col-md-6">
+                <AtiFormItem className="form-control" name = "memail" id = "memail"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "email"
+                                value={this.state.username}
+                                onChange={(e)=>{this.setState({username:e.target.value})}}   
+                                type='email'
+                                placeholder="Email Id"/>
+                </AtiFormItem>
+                </div>
+
+                <div className="form-group col-md-6">
+                    <AtiFormItem className="form-control" name = "mnumber" id = "mnumber"
+                                    config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                    labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                    wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                    <Input 
+                                    id = "number"
+                                    value={this.state.number}
+                                    onChange={(e)=>{this.setState({number:e.target.value})}}   
+                                    type='number'
+                                    placeholder="Contact Number"/>
+                    </AtiFormItem>
+                </div>
+
+                <Nationality/>
+                <div className="form-group col-md-6">
+        <select class="form-control" id="religion" name="religion">
+    <option value="">-- Select Religion --</option>
+        <option value="B Positive">Hindu</option>
+        <option value="B Negative">Islam</option>
+        <option value="B Unknown">Christian</option>
+        <option value="AB Positive">Sikh</option>
+        <option value="AB Negative">Budhism</option>
+        <option value="AB Unknown">Kong Ho Chu</option>
+        <option value="O Positive">Katolik</option>
+        </select>
+        </div>
+                <BloodGroup/>
+                
+      </div>;
+  }
+
+  const panel2=()=>{
+    return <div className="row">
+       <div className="form-group col-md-4">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                type='text'
+                                placeholder="Father's name" />
+                </AtiFormItem>
+        </div>
+                <div className="form-group col-md-4">
+                <AtiDatePicker 
+        
+        events={
+            {
+                onDateChange:(e)=>{
+                     this.setState({
+                         dob:e,
+                         off:true
+                     })
+                }
+            }
+        }
+        
+        timeFormat={false}
+        dateFormat="YYYY-DD-MM"
+        input= {true}
+        closeOnSelect={false}
+        placeholder="Date of birth"
+        readonly = {false}
+      >
+      </AtiDatePicker>
+      </div>
+      <div className="form-group col-md-4">
+                    <AtiFormItem className="form-control" name = "mnumber" id = "mnumber"
+                                    config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                    labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                    wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                    <Input 
+                                    id = "number"
+                                    value={this.state.number}
+                                    onChange={(e)=>{this.setState({number:e.target.value})}}   
+                                    type='number'
+                                    placeholder="Adhar Number"/>
+                    </AtiFormItem>
+     </div>
+      <div className="form-group col-md-4">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='text'
+                                placeholder='Mother name...' />
+                </AtiFormItem>
+        </div>
+                <div className="form-group col-md-4">
+                <AtiDatePicker 
+        
+        events={
+            {
+                onDateChange:(e)=>{
+                     this.setState({
+                         dob:e,
+                         off:true
+                     })
+                }
+            }
+        }
+        
+        timeFormat={false}
+        dateFormat="YYYY-DD-MM"
+        input= {true}
+        closeOnSelect={false}
+        placeholder="Date of birth"
+        readonly = {false}
+      >
+      </AtiDatePicker>
+      </div>
+      <div className="form-group col-md-4">
+                    <AtiFormItem className="form-control" name = "mnumber" id = "mnumber"
+                                    config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                    labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                    wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                    <Input 
+                                    id = "number"
+                                    value={this.state.number}
+                                    onChange={(e)=>{this.setState({number:e.target.value})}}   
+                                    type='number'
+                                    placeholder="Adhar Number"/>
+                    </AtiFormItem>
+                </div>
+                <div className="form-group col-md-4">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='text'
+                                placeholder='Brother/Sister - 1' />
+                </AtiFormItem>
+        </div>
+                <div className="form-group col-md-4">
+                <AtiDatePicker 
+        
+        events={
+            {
+                onDateChange:(e)=>{
+                     this.setState({
+                         dob:e,
+                         off:true
+                     })
+                }
+            }
+        }
+        
+        timeFormat={false}
+        dateFormat="YYYY-DD-MM"
+        input= {true}
+        closeOnSelect={false}
+        placeholder="Date of birth"
+        readonly = {false}
+      >
+      </AtiDatePicker>
+      </div>
+      <div className="form-group col-md-4">
+                    <AtiFormItem className="form-control" name = "mnumber" id = "mnumber"
+                                    config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                    labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                    wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                    <Input 
+                                    id = "number"
+                                    value={this.state.number}
+                                    onChange={(e)=>{this.setState({number:e.target.value})}}   
+                                    type='number'
+                                    placeholder="Adhar Number"/>
+                    </AtiFormItem>
+                </div>
+                <div className="form-group col-md-4">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='text'
+                                placeholder='Brother/Sister - 2' />
+                </AtiFormItem>
+        </div>
+                <div className="form-group col-md-4">
+                <AtiDatePicker 
+        
+        events={
+            {
+                onDateChange:(e)=>{
+                     this.setState({
+                         dob:e,
+                         off:true
+                     })
+                }
+            }
+        }
+        
+        timeFormat={false}
+        dateFormat="YYYY-DD-MM"
+        input= {true}
+        closeOnSelect={false}
+        placeholder="Date of birth"
+        readonly = {false}
+      >
+      </AtiDatePicker>
+      </div>
+      <div className="form-group col-md-4">
+                    <AtiFormItem className="form-control" name = "mnumber" id = "mnumber"
+                                    config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                    labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                    wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                    <Input 
+                                    id = "number"
+                                    value={this.state.number}
+                                    onChange={(e)=>{this.setState({number:e.target.value})}}   
+                                    type='number'
+                                    placeholder="Adhar Number"/>
+                    </AtiFormItem>
+                </div>
+                <div className="form-group col-md-4">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='text'
+                                placeholder='Brother/Sister - 3' />
+                </AtiFormItem>
+        </div>
+                <div className="form-group col-md-4">
+                <AtiDatePicker 
+        
+        events={
+            {
+                onDateChange:(e)=>{
+                     this.setState({
+                         dob:e,
+                         off:true
+                     })
+                }
+            }
+        }
+        
+        timeFormat={false}
+        dateFormat="YYYY-DD-MM"
+        input= {true}
+        closeOnSelect={false}
+        placeholder="Date of birth"
+        readonly = {false}
+      >
+      </AtiDatePicker>
+      </div>
+      <div className="form-group col-md-4">
+                    <AtiFormItem className="form-control" name = "mnumber" id = "mnumber"
+                                    config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                    labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                    wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                    <Input 
+                                    id = "number"
+                                    value={this.state.number}
+                                    onChange={(e)=>{this.setState({number:e.target.value})}}   
+                                    type='number'
+                                    placeholder="Adhar Number"/>
+                    </AtiFormItem>
+                </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      </div>;
+  }
+
+  const maried = (e) => {
+    console.log('radio checked', e.target.value);
+    this.setState({
+        maried: e.target.value,
+    });
+}
+
+const mariedFields=()=>{
+    if(this.state.maried==1){
+        return <div className="row">
+             <div className="form-group col-md-12">
+         <AtiRadioButton 
+            name = "radio-group"
+            value = {this.state.maried} 
+            buttonStyle = "solid"
+            size= "large" 
+            events={
+                {onChange:maried}
+            }
+        >
+            <AtiRadioButtonItem value = {2}>Un-maried</AtiRadioButtonItem>
+            <AtiRadioButtonItem value = {1}>Maried</AtiRadioButtonItem>
+        </AtiRadioButton>
+        </div>
+            <div className="form-group col-md-4">
+                <AtiDatePicker 
+        
+        events={
+            {
+                onDateChange:(e)=>{
+                     this.setState({
+                         dob:e,
+                         off:true
+                     })
+                }
+            }
+        }
+        
+        timeFormat={false}
+        dateFormat="YYYY-DD-MM"
+        input= {true}
+        closeOnSelect={false}
+        placeholder="Date of marriage"
+        readonly = {false}
+      >
+      </AtiDatePicker>
+      </div>
+      <div className="form-group col-md-4">
+                    <AtiFormItem className="form-control" name = "mnumber" id = "mnumber"
+                                    labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                    wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                    <Input 
+                                    id = "number"
+                                    value={this.state.number}
+                                    onChange={(e)=>{this.setState({number:e.target.value})}}   
+                                    type='number'
+                                    placeholder="Spouce name..."/>
+                    </AtiFormItem>
+                </div>
+      <div className="form-group col-md-4">
+                    <AtiFormItem className="form-control" name = "mnumber" id = "mnumber"
+                                   labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                    wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                    <Input 
+                                    id = "number"
+                                    value={this.state.number}
+                                    onChange={(e)=>{this.setState({number:e.target.value})}}   
+                                    type='number'
+                                    placeholder="Adhar Number"/>
+                    </AtiFormItem>
+                </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </div>
+    }else{
+        return  <div className="form-group col-md-6">
+        <AtiRadioButton 
+           name = "radio-group"
+           value = {this.state.maried} 
+           buttonStyle = "solid"
+           size= "large" 
+           events={
+               {onChange:maried}
+           }
+       >
+           <AtiRadioButtonItem value = {2}>Un-maried</AtiRadioButtonItem>
+           <AtiRadioButtonItem value = {1}>Maried</AtiRadioButtonItem>
+       </AtiRadioButton>
+       </div>
+    }
+}
+const addCheck = (e) => {
+    this.setState({add : !this.state.add});
+}
+ const panel4=()=>{
+    if(!this.state.add){
+        return <div className="row">
+            <legend>Paremanent address</legend>
+            
+            <div className="form-group col-md-12">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='text'
+                                placeholder="Address" />
+                </AtiFormItem>
+        </div>
+        <div className="form-group col-md-6">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='text'
+                                placeholder="City" />
+                </AtiFormItem>
+        </div>
+        <div className="form-group col-md-6">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='number'
+                                placeholder="Pin-Code" />
+                </AtiFormItem>
+        </div>
+
+        <legend>Current address</legend>
+            
+            <div className="form-group col-md-12">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='text'
+                                placeholder="Address" />
+                </AtiFormItem>
+        </div>
+        <div className="form-group col-md-6">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                               labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='text'
+                                placeholder="City" />
+                </AtiFormItem>
+        </div>
+        <div className="form-group col-md-6">
+                <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                                labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                                wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                                <Input 
+                                id = "lname"
+                                value={this.state.lname}
+                                onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                               
+                                type='number'
+                                placeholder="Pin-Code" />
+                </AtiFormItem>
+        </div>
+            <AtiCheckbox 
+        events={{onChange: addCheck}} 
+        checked = {this.state.add}
+        // autoFocus = {true}
+    >
+        Same as above
+    </AtiCheckbox>
+        </div>
+    }else{
+        return <div className="row">
+        <legend>Paremanent address</legend>
+        
+        <div className="form-group col-md-12">
+            <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                            config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                            labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                            wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                            <Input 
+                            id = "lname"
+                            value={this.state.lname}
+                            onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                           
+                            type='text'
+                            placeholder="Address" />
+            </AtiFormItem>
+    </div>
+    <div className="form-group col-md-6">
+            <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                            config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                            labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                            wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                            <Input 
+                            id = "lname"
+                            value={this.state.lname}
+                            onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                           
+                            type='text'
+                            placeholder="City" />
+            </AtiFormItem>
+    </div>
+    <div className="form-group col-md-6">
+            <AtiFormItem className="form-control" id = "mlname" name = "mlname"
+                            config={{"rules": [{"required": true, "message": "Please input your data here!"}]}}
+                            labelCol={{"xs": {"span": 24}, "sm": {"span": 8}}}
+                            wrapperCol={{"xs": {"span": 24}, "sm": {"span": 25}}}>
+                            <Input 
+                            id = "lname"
+                            value={this.state.lname}
+                            onChange={(e)=>{this.setState({lname:e.target.value})}}   
+                           
+                            type='number'
+                            placeholder="Pin-Code" />
+            </AtiFormItem>
+    </div>
+
+        <AtiCheckbox 
+    events={{onChange: addCheck}} 
+    checked = {this.state.add}
+    // autoFocus = {true}
+>
+    Same as above
+</AtiCheckbox>
+    </div>
+    }
+  }
+ return (
+    <div style={{padding:'20px'}}>
+    <AtiForm id = "addprofile" events={{onSubmit:this.handleSubmit}} >
+            <div className="row">
+            <div className="form-group col-md-12">
+            <AtiCollapse defaultActiveKey={['']}
+  events={{"onChange": "..."}}
+  dataSource={[{
+    "header": "Personal Detail",
+    "key": "1",
+    "style": {},
+    "showArrow": true,
+    "text": panel1()
+  }, {
+    "header": "Family",
+    "key": "2",
+    "style": {},
+    "showArrow": true,
+    "text": panel2()
+  }, {
+    "header": "Marital Status",
+    "key": "3",
+    "style": {},
+    "showArrow": true,
+    "text": mariedFields()
+  }, {
+    "header": "Address",
+    "key": "4",
+    "style": {},
+    "showArrow": true,
+    "text": panel4()
+  }]} />
+
+          </div>
+                <div className="form-group col-md-12">
+                <div className="form-group col-md-12 align-self-end">
+               
+                <Button type='primary'
+                id='addCatbtn'
+                htmlType='submit'><i className="fa fa-plus"></i>Add</Button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b><span id = 'successAlert' style={{color:'green',display:'none'}} >Action performed successfully.</span></b>
+                </div>
+                  </div>
+    </div>
+          </AtiForm>
+ 
+    </div>
+    )
+ }
+}export default Form
+

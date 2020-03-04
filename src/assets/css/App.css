@@ -1,0 +1,776 @@
+@import url("./../fonts/style.css");
+
+.page-title {
+    font-family: 'Avenir Next LT Pro Bold' !important;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    font-size: 28px;
+    margin-block-end: unset;
+}
+.ant-breadcrumb-link {
+    font-family: 'Avenir Next LT Pro Regular' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #707070;
+    font-size: 12px;
+}
+
+.page-title-small {
+    font-family: 'Avenir Next LT Pro Bold' !important;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #707070;
+    font-size: 0.75rem;
+    margin-block-end: unset;
+    padding-left: 3px;
+}
+
+.pocketbank-form {
+    z-index: auto;
+    font-size: 12px;
+    min-height: 25px;
+    height: 40px;
+    border-radius: 7px;
+    box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.08);
+    border: solid 1px #d6d6d6;
+    background-color: #ffffff;
+}
+
+.pocketbank-form-numeric {
+    z-index: auto;
+    font-size: 0.8em;
+    min-height: 25px;
+    height: 35px;
+    text-align: right !important;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba(69, 91, 99, 0.08);
+    border: solid 0.5px #d6d6d6;
+    background-color: #ffffff;
+}
+
+.pocketbank-form ::placeholder {
+    opacity:  1;
+    color: #aaaaaa;
+}
+
+.card-title{
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #062638 !important;
+}
+
+.card-desc{
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000 !important;
+}
+
+.button-save-modal {
+    float: right;
+}
+
+.pocket-modal-header{
+    border-bottom: 0px !important;
+    width: 100%;
+}
+
+.modal-title {
+    width: 100% !important;
+}
+
+.pocket-modal-container{
+    margin: auto !important;
+}
+
+.pocket-modal-content{
+    min-height: 100vh !important;
+    border-radius:0px !important;
+}
+
+.modal-dialog{
+    margin: auto !important;
+}
+
+.modal-sm{
+    max-width: 420px !important;
+}
+
+.pocket-btn-link {
+    font-family: Avenir Next LT Pro Regular !important;
+    font-size: 12px;
+    text-decoration: underline !important;
+    font-weight: 500 !important;
+    font-style: normal !important;
+    font-stretch: normal !important;
+    line-height: 1.14 !important;
+    letter-spacing: normal !important;
+    text-align: left !important;
+    border: 0px !important;
+    cursor: pointer !important;
+    padding: 0 0 0 0 !important;
+    background-color: #fff;
+    padding-top: 0px !important;
+    height: unset !important;
+}
+.active-background {
+    border-radius: 25px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-family: 'AvenirNextLTPro';
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: white;
+    background-color: #28a2ab;
+  }
+.bg-dock {
+    background-color: rgb(250, 250, 254) !important;
+}
+
+.form-group {
+    margin-bottom: 0px;
+    font-size: 12px !important;
+}
+
+.row-space {
+    padding-top: 14px;
+}
+
+.ant-notification-notice-message {
+    font-size: 14px !important;
+    font-weight: normal !important;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff !important;
+    margin-left: 0px !important;
+}
+
+.cell-with-indent > span {
+    padding-left: 25px !important;
+}
+
+.cell-as-parent {
+    font-weight: bold;
+}
+
+.save-button {
+    float: right;
+    margin-top: 25px !important;
+    padding: 15px !important;
+    height: 50px !important;
+    width: 140px !important;
+}
+.add-button {
+    float: right;
+    position: absolute !important;
+    right: 1px !important;
+    top: 30px !important;
+    background-color: #263239 !important;
+    color: white !important;
+    height: 40px !important;
+    width: 100% !important;
+    font-weight: bold !important;
+    margin-left: 72px !important;
+    border-radius: 0px 5px 5px 0px !important;
+}
+.add-button-deep{
+    float: right;
+    position: absolute !important;
+    right: 1px !important;
+    top: 27.7px !important;
+    background-color: #037daa!important;
+    color: white !important;
+    height: 40px !important;
+    width: 100% !important;
+    font-weight: bold !important;
+    margin-left: 72px !important;
+}
+
+.ant-layout {
+    background: #fafafe;
+}
+
+.pocket-input {
+    font-size: 1vw;
+}
+
+.pocket-input-search {
+    font-size: 1vw;
+    border-radius: 5px 0px 0px 5px !important; 
+}
+
+.input-with-addon-right {
+    border-right: none;
+}
+
+.input-group-text {
+    background-color: #fff;
+    border-left: none;
+}
+
+.ant-table-small>.ant-table-content>.ant-table-body>table, .ant-table-small>.ant-table-content>.ant-table-fixed-left>.ant-table-body-outer>.ant-table-body-inner>table, .ant-table-small>.ant-table-content>.ant-table-fixed-left>.ant-table-header>table, .ant-table-small>.ant-table-content>.ant-table-fixed-right>.ant-table-body-outer>.ant-table-body-inner>table, .ant-table-small>.ant-table-content>.ant-table-fixed-right>.ant-table-header>table, .ant-table-small>.ant-table-content>.ant-table-header>table, .ant-table-small>.ant-table-content>.ant-table-scroll>.ant-table-body>table, .ant-table-small>.ant-table-content>.ant-table-scroll>.ant-table-header>table {
+    border: 0;
+    padding: 0px;
+}
+
+.ant-table-small > .ant-table-content > .ant-table-body > table{
+    padding: 0 !important;
+}
+
+.ant-table {
+    z-index: 101 !important;
+}
+
+.button-add {
+    padding: 5px 20px 5px 20px !important;
+    font-size: 12px !important;
+}
+
+.button-add > i {
+    font-size: 12px !important;
+}
+
+.button-add > span {
+    font-size: 12px !important;
+}
+
+.ant-notification-notice-close-x {
+    color: #fff;
+}
+
+.Popover-body {
+    width: 100%;
+}
+
+.ant-menu {
+    margin-bottom: 10px !important;
+}
+
+.ant-menu .ant-menu-dark .ant-menu-inline .ant-menu-sub {
+    background: #2a2e43;
+}
+
+.ant-menu-submenu-title {
+    height: unset !important;
+    padding-left: 18px!important;
+    opacity: 0.6;
+    filter: grayscale(1);
+}
+
+.ant-menu-submenu-title:hover {
+    color: white;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.ant-menu-item {
+    padding-left: 18px !important;
+    font-family: 'Avenir Next LT Pro Demi';
+    font-size: 11px !important;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: left;
+    opacity: 0.6;
+    filter: grayscale(1);
+}
+
+.ant-menu-item-selected {
+    width: 75%;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    border-left: 3px #fff solid;
+    color: white;
+    background-color: #28a2ab !important;
+    padding-left: 15px !important;
+    opacity: 1;
+    filter: none;
+}
+
+.ant-menu-item-selected::after{
+    content: "";
+    height: 100%;
+    background: #fff;
+    width: 10px;
+    position: absolute;
+    top: 10%;
+    left: -8px;
+    border-radius: 10px;
+    border-right: unset !important;
+}
+
+.ant-layout-sider-collapsed .ant-menu-item {
+    height: 75px;
+    border-radius: 20px;
+    padding: unset !important;
+    text-align: center;
+}
+
+.ant-layout-sider-collapsed .ant-menu-item-selected {
+    background-color: #28a2ab !important;
+    margin: 24px;
+    color: white;
+    box-shadow: 0 5px 7.5px 0 rgba(8, 86, 96, 0.18);
+    border-left: unset !important;
+    margin-left: 15px !important;
+}
+
+.ant-menu-item-selected:hover {
+    color: white;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.ant-menu-item:hover {
+    color: white;
+    opacity: 1 !important;
+    filter: none !important;
+}
+.account-balance-padding {
+    padding: 16px 20px;
+  }
+  .history-account-currency {
+    font-family: "Avenir Next LT Pro Bold";
+    font-size: 18px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.42;
+    letter-spacing: normal;
+    color: #000000;
+  }
+  .history-account-value {
+    font-family: "Avenir Next LT Pro Bold";
+    font-size: 24px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.42;
+    letter-spacing: normal;
+    color: #000000;
+  }
+  .cash-balance-header {
+    margin-top: 15px;
+  }
+  
+.filter-button-padding {
+    padding: 0 5px 0 15px;
+  }
+  .btn-filter-position {
+    text-align: right;
+    margin-top: 10px;
+  }
+  .filter-desc-text {
+    font-family: "Avenir Next LT Pro Demi";
+    font-size: 14px;
+    font-weight: 680;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: 0.28px;
+  }
+  .widget-desc-text {
+    font-size: 1vw;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #8d8da1;
+  }
+  .list-transaction-margin {
+    margin: 2% 10%;
+  }
+  .history-cash-filter-button {
+    margin-top: 20px;
+    width: 310px;
+    height: 50px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+  .text-value {
+    font-family: Avenir Next LT Pro Bold !important;
+    font-size: 12px !important;
+    color: #000000 !important;
+  }
+  .transaction-history-tittle {
+    font-family: "Avenir Next LT Pro Demi";
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #263238;
+  }
+.ant-table-thead > tr > th {
+    border-radius: 0px !important;
+}
+
+.ant-table-small {
+    border: 0px !important;
+    border-radius: 0px;
+}
+
+.title-separator {
+    background-color: #d0d0d0 !important;
+    height: 1px;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: 16px;
+}
+
+.ant-table-column-sorter-up, .ant-table-column-sorter-down {
+    color: #fff;
+}
+
+.containerMenu {
+    height: calc(100vh - 200px);
+}
+
+.pocket-form-container {
+    width: 70%;
+}
+
+.pocket-form-50-container {
+    width: 50%;
+}
+
+.button-add-table-form-dash {
+    width: 100%;
+    background-color: #f3faff;
+    border: 2px dashed #1e8bdf;
+    font-size: 0.9em;
+    color: #1e8bdf;
+}
+
+.button-add-table-form > * {
+    color: #1e8bdf !important;
+    font-weight: bold !important;
+}
+
+.right-align-numeric {
+    width: 95%;
+    text-align: right;
+}
+
+.pocket-table-form {
+    z-index: 10;
+}
+
+.pocket-image > .ant-card-body {
+    padding: 0px;
+}
+
+.ant-upload.ant-upload-select-picture-card {
+    border: 0px !important;
+    background-color: transparent;
+    display: block;
+    height: auto;
+}
+
+.ant-upload.ant-upload-select-picture-card > .ant-upload {
+    padding: 0px !important;
+}
+
+.ant-upload-list-picture-card .ant-upload-list-item {
+    border: 0px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.label-breadcrumb {
+    width: 123px;
+    height: 12px;
+    font-family: 'Avenir Next LT Pro Regular';
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #707070;
+}
+
+.breadcrumb-page {
+    font-family: 'Avenir Next LT Pro Regular';
+    font-size: 10px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: left;
+    color: #707070;
+    padding-left: 3px;
+    margin-block-end: unset !important;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+.modal-bill-pin {
+    background-color: #28a2ab;
+    border-bottom: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+.modal-bill-pin-content {
+    height: 100%;
+    background-color: #28a2ab;
+    border: none;
+  }
+  
+.text-bill-header {
+    color: white;
+    font-family: Avenir Next LT Pro Bold;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.42;
+    letter-spacing: normal;
+    text-align: left;
+  }
+  
+.text-style {
+    font-size: 12px;
+  }
+  
+.sending-pin-button {
+    font-family: "Avenir Next LT Pro Bold";
+    font-size: small;
+    min-height: 50px;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16) !important;
+    border: solid 0.5px #ffffff !important;
+    background-color: #ffffff !important;
+    min-width: 150px !important;
+    display: block !important;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000 !important;
+  }
+  
+.bill-divider-footer {
+    border-top: 1px #2a2e43 dashed;
+    margin-bottom: 15px;
+  }
+  .history-filter-img{
+    height: 12.7px;
+    width: 3.1px;
+    object-fit: contain;
+      /* border: 'solid 1px #000000',
+      backgroundColor: '#000000', */
+       margin-top: 3px;
+      margin-right: 5px;
+  }
+.text-bold-m{
+    margin-right: 25px;
+    width: 36px;
+    height: 14px;
+    font-family: AvenirNextLTPro;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: right;
+    color: #43425d;
+  }
+.text-style1{
+    margin-left: 25px;
+    width: 108px;
+    height: 14px;
+    font-family: AvenirNextLTPro;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+  }
+.bill-bottom:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    height: 10px;
+    width: 100%;
+    bottom: -10px;
+    background: radial-gradient(
+        circle,
+        transparent,
+        transparent 40%,
+        white 50%,
+        white 100%
+      ) -9px -2px/15px 25px repeat-x;
+  }
+  
+.receipt-divider-footer {
+    border-top: 1px #28a2ab dashed;
+    margin-bottom: 30px;
+  }
+  
+.text-bold {
+    text-align: center;
+    font-family: "Avenir Next LT Pro Bold";
+    font-weight: bold;
+  }
+.receipt-confirm {
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background: white;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+.hidden {
+    display:none;
+}
+
+.box-shadow{
+    box-shadow: 0 0 10px 0 rgba(69, 91, 99, 0.08);
+}
+
+.add-template{
+    color: #037daa;
+    font-weight: 500;
+    text-decoration: underline;
+}
+.add-template-pop{
+    width: 226px;
+    border-radius: 5px;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.21);
+    margin-left: 5px;
+    font-weight: 700;
+    color: black;
+}
+.row-add-template{
+    height: '30px';
+    padding: 10px 20px;
+}
+.row-add-template:hover{
+    background-color: #f6f6f6;
+}
+
+.dashboard-item {
+    width : 100%;
+    height : auto;
+    border-radius: 10px;
+    box-shadow: 0 1.5px 4.5px 0 rgba(155, 155, 155, 0.07);
+    background-color: #ffffff;
+    margin-bottom: 5%;
+}
+
+.react-grid-layout {
+    margin-left: -10px;
+}
+
+.react-grid-item {
+    border-radius: 10px;
+}
+
+.react-grid-form {
+    height: auto !important;
+    margin-bottom: 30px;
+}
+
+.shadow{
+    box-shadow: 0 1.5px 4.5px 0 rgba(155, 155, 155, 0.07);
+}
+
+.gray-border{
+    border : 1px solid #b5b4b4;
+}
+
+.wrapper-loading-widget{
+    height: 75%;
+}
+
+.link-login {
+    font-size: 8px;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+.forgot-form-container {
+    margin: 30px auto;
+}
+
+.forgot-form {
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba(69, 91, 99, 0.08);
+    border: solid 0.5px #d6d6d6;
+    background-color: var(--white);
+}
+
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+label {
+    color: #000000 !important;
+    font-size: 12px;
+}
+
+.repassword {
+    margin-top: 15px;
+}
+
+.item-menu {
+    font-family: 'Avenir Next LT Pro Demi';
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    /* color: #cecece; */
+    color: #ffffff;
+}

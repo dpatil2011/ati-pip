@@ -1,0 +1,206 @@
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 140px;
+    padding-bottom: 15px;
+}
+
+.login-text {
+    /* opacity: 0.5; */
+    font-family: 'Avenir Next LT Pro Regular';
+    font-style: 10.5px !important;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin-top: 1%;
+    margin-bottom: 6%;
+}
+
+.login-header-text {
+    /* opacity: 0.5; */
+    font-family: 'Avenir Next LT Pro Regular';
+    font-style: 10.5px !important;
+    font-size: 37px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin-top: 1%;
+    margin-bottom: 6%;
+}
+
+
+.login-form {
+    border: 0; 
+    padding: 10px 0; 
+    font-size: 14px;
+    margin-right: 6px !important;
+    width: 50%;
+}
+
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.login-form > .focus-border{
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 0; 
+    height: 2px; 
+    background-color: #4caf50; 
+    transition: 0.4s;
+}
+
+.login-form:focus > .focus-border{
+    width: 100%; 
+    transition: 0.4s;
+}
+
+.login-background{
+    max-width: 100%;
+    height: 100vh;
+}
+
+.login-button{
+    min-height: 50px;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16) !important;
+    border: solid 0.5px #037daa !important;
+    background-color: #037daa !important;
+    text-align: center;
+    display: block !important;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+  }
+
+.login-button-page {
+    font-family: 'Avenir Next LT Pro Bold';
+    font-size: small;
+    min-height: 50px;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16) !important;
+    border: solid 0.5px #28a2ab !important;
+    background-color: #28a2ab !important;
+    min-width: 150px !important;
+    text-align: center;
+    display: block !important;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+  .footer {
+    position: fixed;
+    font-size: 11px;
+    bottom:0;
+    width:50%;
+    margin-bottom: 2% !important;
+ }
+
+.forgot-link {
+    margin-top: 4px;
+    display: flex !important;
+    flex: end !important;
+    margin-left: auto !important; 
+    margin-right: 0 !important;
+    font-size: 14px !important;
+}
+
+.forgot-background {
+    height: 100vh;
+    background-color: #fafafe;
+}
+
+.forgot-form-container {
+    height: 100vh;
+}
+
+.forgot-nav-login {
+    display: block;
+    margin-left: auto;
+    margin-top: -10px;
+    margin-right: 80px;
+    font-size: 13px !important;
+}
+
+.forgot-nav-back {
+    width: 70%;
+    margin: 45px auto;
+}
+
+.container-reset-password {
+    width: 70%;
+    margin: 55px auto;
+}
+
+.container-forgot-password {
+    width: 25vw;
+    margin: 30vh;
+}
+
+.textbox {
+    border-bottom-width: 0px !important;
+    margin-bottom: 0% !important;
+}
+
+.box-textbox {
+    width: 100%;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d6d6d6;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+
+}
+
+.icon-textbox {
+    margin-top: 20%;
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lock-icon {
+    margin-top: 3% !important;
+    margin-bottom: 5px !important;
+}
+
+.icon-size {
+    height: 20px;
+    width: 20px;
+}
+
+.validation {
+    display: flex !important;
+    align-items: start !important;
+    justify-content: start !important;
+}
+
+.row-checkbox {
+    margin-top: 15px;
+}
+
+.text-bold{
+    text-align: center;
+    font-family: 'Avenir Next LT Pro Bold';
+    font-weight: bold;
+}

@@ -1,0 +1,25 @@
+.rounded-button {
+    min-height: 6vh;
+    min-width: 10vw;
+    border: none; 
+    background: none !important;
+    padding: 5px 30px 5px 30px;
+    cursor: pointer;  
+    border-radius: 33px;
+    box-shadow: 0 3px 12px 0 rgba(40, 171, 162, 0.28);
+    font-size: 14px;
+    font-family: 'Avenir Next LT Pro Demi';
+}
+
+.rounded-button span {
+    color: #000000;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+}
+
+.rounded-button i {
+    color:#45425d;
+    font-size: 0.9vw !important;
+    font-weight: 500 !important;
+}

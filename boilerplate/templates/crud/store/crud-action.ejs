@@ -1,0 +1,188 @@
+/**
+ * @author hosea.simanjuntak
+ * this is a collection of functions / actions that handle all the needs of the crud component
+ * @public
+ */
+
+import {  push } from 'react-router-redux'
+import { TOOGLE_LOADING, SET_ACCOUNTS, FILTER_ACCOUNTS, GET_FIRST_LOADED, SET_ACCOUNT } from "./<%=func._.kebabCase(crudFileName)%>-action-type";
+import MOCK_DATA from './../sample-data/MOCK_DATA.json'
+import * as StringUtils from 'voca';
+import {AtiMessage} from 'ati-react-web'
+
+/**
+ * this function is used on the view account page to populate the data list of accounts in the datatable
+ */
+export const getAccounts = ()=>{
+    return (dispatch)=>{
+        dispatch(dispatchLoading());
+        const timeout = setTimeout(()=>{
+            const obj = MOCK_DATA;
+            if (obj !== undefined && obj.length != 0) {
+                dispatch(dispatchLoading());
+                dispatch(dispatchAccounts(obj));
+            }else{
+                console.log("Failure");
+                dispatch(dispatchLoading());
+            }
+            clearTimeout(timeout);
+        },5000); 
+        
+    }
+};
+
+/**
+ * this function is used on the account view page to filter data
+ */
+export const filterAccounts = (dataSource,e) =>{
+    return (dispatch) => {
+        dispatch(dispatchLoadedAccounts())
+        const datas = dataSource;
+        const searchVal = e.target.value.toLowerCase() || '';
+        if(!StringUtils.isEmpty(searchVal)){
+            const array = datas.filter((data) => {
+                return data.name.toLowerCase().includes(searchVal) || data.email.toLowerCase().includes(searchVal) || data.account_number.toLowerCase().includes(searchVal);        
+            });
+            dispatch(dispatchFilterAccounts(array))
+        }else{
+            dispatch(dispatchLoadedAccounts())
+        }
+    }
+}
+
+const dispatchAccounts = (accounts)=>{
+    return {
+        type: SET_ACCOUNTS,
+        payload:accounts
+    };
+}
+
+const dispatchLoading = ()=>{
+    return {
+        type: TOOGLE_LOADING
+    };
+}
+
+const dispatchFilterAccounts = (accounts)=>{
+    return {
+        type: FILTER_ACCOUNTS,
+        payload:accounts
+    };
+}
+
+const dispatchLoadedAccounts = ()=>{
+    return {
+        type: GET_FIRST_LOADED
+    };
+}
+
+/**
+ * this function is used on the account view page to delete spesific record on datatable
+ * @param {object} dataSource 
+ * @param {number} id 
+ */
+export const deleteAccount = (dataSource,id) =>{
+    return (dispatch)=>{
+        dispatch(dispatchLoading())
+        const timeout = setTimeout(()=>{
+            const array = dataSource.filter(obj => obj.id != id)
+            dispatch(dispatchAccounts(array))
+            dispatch(dispatchLoading())
+            clearTimeout(timeout)
+        },2000); 
+        
+    }
+}
+
+/**
+ * this function is used on the edit form (crud) to populate initial data when page is loaded
+ * @param {number} id 
+ */
+export const getAccount = (id) =>{
+    return (dispatch)=>{
+        dispatch(dispatchLoading())
+        const timeout = setTimeout(()=>{
+            const array = MOCK_DATA.filter(obj => obj.id == id)
+
+            const arrayAccount = [];
+            arrayAccount.push({title: 'Name', description: array[0].name})
+            arrayAccount.push({title: 'Email', description: array[0].email})
+            arrayAccount.push({title: 'Account Number', description: array[0].account_number})
+
+            dispatch(dispatchAccount({listData:arrayAccount,account:array[0]}))
+            dispatch(dispatchLoading())
+            clearTimeout(timeout)
+        },2000); 
+        
+    }
+}
+
+/**
+ * this function is used on the edit form (crud) to populate initial data when page is loaded
+ * @param {number} id 
+ * @param {function} onsuccess 
+ */
+export const getAccountForForm = (id,onsuccess) =>{
+    return (dispatch)=>{
+        dispatch(dispatchLoading())
+        const timeout = setTimeout(()=>{
+            const array = MOCK_DATA.filter(obj => obj.id == id)
+
+            const arrayAccount = [];
+            arrayAccount.push({title: 'Name', description: array[0].name})
+            arrayAccount.push({title: 'Email', description: array[0].email})
+            arrayAccount.push({title: 'Account Number', description: array[0].account_number})
+
+            dispatch(dispatchAccount({listData:arrayAccount,account:array[0]}))
+            onsuccess()
+            dispatch(dispatchLoading())
+            clearTimeout(timeout)
+        },2000); 
+        
+    }
+}
+
+const dispatchAccount = (data)=>{
+    return {
+        type: SET_ACCOUNT,
+        payload:data
+    };
+}
+
+/**
+ * simulate submitting form to the backend server
+ * @param {object} data 
+ */
+const simulateSubmitToServer = (data) => {
+    console.log(data)
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            if(data.name === 'Hosea'){
+                resolve(data)
+            }else{
+                reject({msg: 'Nama Harus Hosea'})
+            }
+        },5000)
+    })
+}
+
+/**
+ * function on form submitted
+ * @param {object} params 
+ */
+export const submitForm = (params)=>{
+    return (dispatch)=>{
+        //just initiate loading form
+        dispatch(dispatchLoading())
+        
+        //simulate update data to server
+        simulateSubmitToServer(params).then((data) => {
+             dispatch(push('/modul/account'))
+             dispatch(dispatchLoading())
+             AtiMessage({type: 'success', message: 'Successfully update data '+ data.name +'..', duration: 5})
+        },(errors) => {
+            dispatch(dispatchLoading())
+            AtiMessage({type: 'error', message: errors.msg, duration: 5})
+        });     
+    }
+};

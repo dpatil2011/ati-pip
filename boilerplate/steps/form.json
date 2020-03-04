@@ -1,0 +1,104 @@
+{
+    "name":"Form Screen",
+    "description":"",
+    "params":{
+        "formFileName":{
+            "type":"text",
+            "message": "Form File Name",
+            "validations":["required"]
+        },
+        "formId":{
+            "type":"text",
+            "message": "Form ID",
+            "validations":["required"]
+        },
+        "formComponentName":{
+            "type":"text",
+            "message": "Form Component Name",
+            "validations":["required"]
+        },
+        "formReducerKey":{
+            "type":"text",
+            "message": "Form Reducer Key",
+            "validations":["required"]
+        },
+        "urlAccessPath":{
+            "type":"text",
+            "message": "URL to access path",
+            "validations":["required"]
+        }
+    },
+    "context":{
+        "appTarget":"src/app/<%=func._.kebabCase(formFileName)%>",
+        "moduleTarget":"src/modules/<%=func._.kebabCase(formFileName)%>",
+        "routeConfigPath": "src/common/route",
+        "reducerConfigPath": "src/common/store"
+    },
+    "steps":[
+        {
+            "type":"create-files-by-template",
+            "templateName":"form/form-page.ejs",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(formFileName)%>-page.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"form/component/form.ejs",
+            "target":"<%=context.moduleTarget%>/component/<%=func._.kebabCase(formComponentName)%>.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"form/store/form-action-type.ejs",
+            "target":"<%=context.moduleTarget%>/store/<%=func._.kebabCase(formFileName)%>-action-type.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"form/store/form-action.ejs",
+            "target":"<%=context.moduleTarget%>/store/<%=func._.kebabCase(formFileName)%>-action.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"form/store/form-reducer.ejs",
+            "target":"<%=context.moduleTarget%>/store/<%=func._.kebabCase(formFileName)%>-reducer.js"
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.moduleTarget%>/store/<%=func._.kebabCase(formFileName)%>-reducer.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"router:routerReducer,",
+                        "templateName":"form/redux-config/form-template.ejs"
+                    },
+                    {
+                        "matches":"import { createStore,combineReducers, applyMiddleware } from \"redux\";",
+                        "templateName":"form/redux-config/form-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.reducerConfigPath%>/index.js",
+                "addNewLine":true
+            }
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(formFileName)%>-page.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"child\\: \\[",
+                        "templateName":"form/navigation/form-route.ejs"
+                    },
+                    {
+                        "matches":"// start import component",
+                        "templateName":"form/navigation/form-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.routeConfigPath%>/router-config.js",
+                "addNewLine":true
+            }
+        }
+    ]
+}

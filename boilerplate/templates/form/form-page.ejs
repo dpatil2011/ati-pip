@@ -1,0 +1,50 @@
+/**
+* This page is the main page of the form, which aims to accommodate the form-component.
+*/
+
+import React, {Component} from 'react';
+import <%=func.camelCase(formComponentName, {pascalCase: true})%> from './../../modules/<%=func._.kebabCase(formFileName)%>/component/<%=func._.kebabCase(formComponentName)%>';
+import { submitForm } from './../../modules/<%=func._.kebabCase(formFileName)%>/store/<%=func._.kebabCase(formFileName)%>-action';
+import { connect } from 'react-redux';
+import Page from './../../modules/layout/component/content-page';
+
+class <%=func.camelCase(formFileName, {pascalCase: true})%>Page extends Component {
+
+    /**
+    * This function is to check validation firstname, which one firstname is required.
+    * And firstname must be 20 characters or less.
+    */
+
+    validate = values => {
+        console.log(values)
+        const errors = {}
+        if (!values.firstname) {
+          errors.firstname = 'Required'
+        } else if (values.firstname.length > 20) {
+          errors.firstname = 'Must be 20 characters or less'
+        }
+        return errors
+    }
+
+    render() {
+        return (
+            <Page>
+                <<%=func.camelCase(formComponentName, {pascalCase: true})%>
+                    formId={'<%=formId%>'}
+                    validation={this.validate}
+                    {...this.props}
+                />
+            </Page>
+        )
+    }
+}
+
+const mapStateToProps = (state) => ({
+    ...state.profile
+  })
+  
+  const mapActionToProps = () => ({
+      onSubmit : submitForm, 
+  });
+  
+  export default connect(mapStateToProps, mapActionToProps())(<%=func.camelCase(formFileName, {pascalCase: true})%>Page)

@@ -1,0 +1,19 @@
+.pd-5 {
+    padding: 5px;
+}
+.pd-10 {
+    padding: 10px;
+}
+.list-contact-us-background {
+    align-items: center;
+    margin-top: 15px;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px 0 rgba(69, 91, 99, 0.11);
+}
+.contact-text {
+    font-family: AvenirNextLTPro;
+    font-size: 14px;  
+    letter-spacing: normal;  
+    text-align: left;  
+    color: #000000;
+}

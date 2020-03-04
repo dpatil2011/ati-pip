@@ -1,0 +1,23 @@
+import { UPDATE_DATA_DEVICE, START_UPDATE_DATA, FETCH_DEVICE_SUCCESS, FETCH_DEVICE_FAILED } from "./dashboard-action-type";
+
+const initialState = {
+    
+};
+
+const handler = (currentState)=>{
+    const test = ()=>{
+        return {...currentState};
+    }
+    
+    return { test };
+}
+
+export default (state = initialState, action)=>{
+    const {payload,type} = action;
+    switch(type){
+        case "TEST":
+            return handler(state).test();
+        default :
+            return state;
+    }
+}

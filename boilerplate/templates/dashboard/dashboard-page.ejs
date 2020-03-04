@@ -1,0 +1,29 @@
+/**
+* @author rizky.lazuardi
+* This page will display your dashboard content. Like a dashboard item, widgets, pie chart, etc.
+*/
+
+import React, {Component} from 'react';
+import <%=func.camelCase(dashboardComponentName, {pascalCase: true})%> from './../../modules/dashboard/component/<%=func._.kebabCase(dashboardComponentName)%>';
+import { connect } from 'react-redux';
+import { testDispatch } from './../../modules/dashboard/store/dashboard-action';
+
+class <%=func.camelCase(dashboardFileName, {pascalCase: true})%>Page extends Component {
+    
+    render() {
+       return(
+            <<%=func.camelCase(dashboardComponentName, {pascalCase: true})%> {...this.props}/>
+        )
+    }
+}
+
+const mapStateToProps = (state) => ({
+    ...state.dashboard
+  })
+  
+  const mapActionToProps = () => ({
+    //map dispatch here
+    testFunction: testDispatch,
+  });
+  
+export default connect(mapStateToProps,mapActionToProps())(<%=func.camelCase(dashboardComponentName, {pascalCase: true})%>Page);

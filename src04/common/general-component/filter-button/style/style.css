@@ -1,0 +1,19 @@
+.filter-button {
+    border: none; 
+    background: none !important;
+    cursor: pointer;  
+    font-size: 16px;
+}
+
+.filter-button span {
+    color: #000000;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+}
+
+.filter-button i {
+    color:#45425d;
+    font-size: 0.9vw !important;
+    font-weight: 500 !important;
+}
+

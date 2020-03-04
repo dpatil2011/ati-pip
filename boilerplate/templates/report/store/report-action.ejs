@@ -1,0 +1,157 @@
+/**
+* this is a collection of functions / actions that handle all the needs of the report component
+*/
+
+import {  push } from 'react-router-redux';
+import { 
+    UPDATE_DATA_REPORT,
+    START_UPDATE_DATA,
+    FETCH_REPORT_SUCCESS,
+    FETCH_REPORT_FAILED,
+    UPDATE_DATA_DEVICE,
+    START_UPDATE_DATA_DEVICE,
+    FETCH_DEVICE_SUCCESS,
+    FETCH_DEVICE_FAILED,
+} from "./report-action-type";
+import { DATA_REGISTRATION_REPORT, DATA_REGISTRATION_MAP } from "./../sample-data/dummy-user-report";
+import { DATA_DEVICES } from "./../sample-data/dummy-device-report";
+import { AtiMessage } from 'ati-react-web';
+
+/**
+ * Start Action For User Registration Report
+ */
+
+const simulateGetUserReport = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            if(DATA_REGISTRATION_REPORT.length > 0 && DATA_REGISTRATION_MAP.length > 0){
+                console.log(DATA_REGISTRATION_MAP)
+                const result = {
+                    data: DATA_REGISTRATION_REPORT,
+                    map: DATA_REGISTRATION_MAP
+                }
+                resolve(result)
+            }else{
+                reject({msg: 'Cannot fetching data from the server'})
+            }
+        },5000)
+    })
+}
+
+/**
+* this function is used on the view to get user report
+*/
+
+export const getUserReport = ()=>{
+    return (dispatch)=>{
+        //show loading
+        dispatch(startUpdateUserReport());
+        
+        simulateGetUserReport().then(
+            (result) => {
+                //update data store
+                console.log(result)
+                dispatch(processUpdateUserReport(result.data, result.map));
+                // hide loading and handle success
+                dispatch(fetchDataReportSuccess());
+            },
+            (errors) => {
+                //hide loading and handle on failed
+                dispatch(fetchDataReportFailed(errors));
+                AtiMessage({type: 'error', message: errors.msg, duration: 10})
+            }
+        )
+    }
+};
+
+const processUpdateUserReport = (data, map)=>{
+    return {
+        type: UPDATE_DATA_REPORT,
+        payload:{data, map}
+    };
+}
+
+const startUpdateUserReport = ()=>{
+    return {
+        type: START_UPDATE_DATA
+    };
+}
+
+const fetchDataReportSuccess = ()=>{
+    return {
+        type: FETCH_REPORT_SUCCESS
+    };
+}
+
+const fetchDataReportFailed = (errors)=>{
+    return {
+        type: FETCH_REPORT_FAILED,
+        payload: errors
+    };
+}
+/**
+ * END Action For User Registration Report
+ */
+
+/**
+ * Start Action For User Device Report
+ */
+
+const simulateGetDataDevices = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            if(DATA_DEVICES.length > 0){
+                resolve(DATA_DEVICES)
+            }else{
+                reject({msg: 'Cannot fetching data from the server'})
+            }
+        },5000)
+    })
+}
+
+export const updateDeviceReport = ()=>{
+    return (dispatch)=>{
+        //show loading
+        dispatch(startUpdateReport());
+        
+        simulateGetDataDevices().then(
+            (data) => {
+                //update data store
+                dispatch(processUpdateReport(data));
+                // hide loading and handle success
+                dispatch(fetchDataSuccess());
+            },
+            (errors) => {
+                //hide loading and handle on failed
+                dispatch(fetchDataFailed(errors));
+                AtiMessage({type: 'error', message: errors.msg, duration: 10})
+            }
+        )
+    }
+};
+
+const processUpdateReport = (data)=>{
+    return {
+        type: UPDATE_DATA_DEVICE,
+        payload:data
+    };
+}
+
+const startUpdateReport = ()=>{
+    return {
+        type: START_UPDATE_DATA_DEVICE
+    };
+}
+
+const fetchDataSuccess = ()=>{
+    return {
+        type: FETCH_DEVICE_SUCCESS
+    };
+}
+
+const fetchDataFailed = (errors)=>{
+    return {
+        type: FETCH_DEVICE_FAILED,
+        payload: errors
+    };
+}

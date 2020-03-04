@@ -1,0 +1,46 @@
+.refresh-position {
+    text-align: right;
+    margin-top: 8px;
+}
+
+.refresh-button {
+    min-width: 25px;
+    min-height: 25px;
+    background: none;
+}
+
+.refresh-button i {
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--white);
+}
+
+.refresh-button-black {
+    min-width: 25px;
+    min-height: 25px;
+    background: none !important;
+    border: none !important;
+}
+
+.refresh-button-black:hover {
+    background: rgb(182, 238, 233)
+}
+
+.refresh-button-black:active {
+    background: rgb(182, 238, 233)
+}
+
+.refresh-button-black i {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: black;
+}

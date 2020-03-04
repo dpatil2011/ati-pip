@@ -1,0 +1,27 @@
+/**
+* This is a container of user report component, which one can accommodate component from user registration chart.
+*/
+
+import React, {Component} from 'react'
+import { connect } from 'react-redux';
+import { getUserReport } from './../store/report-action';
+import UserRegistrationChart from './../component/user-registration-chart';
+
+class UserReportContainer extends Component {
+    
+    render() {
+       return(
+            <UserRegistrationChart {...this.props}/>
+        )
+    }
+}
+
+const mapStateToProps = (state) => ({
+    ...state.userReport
+  })
+  
+  const mapActionToProps = () => ({
+    getUserReport,
+  });
+  
+export default connect(mapStateToProps,mapActionToProps())(UserReportContainer);

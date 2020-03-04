@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+    <defs>
+        <style>
+            .cls-1,.cls-3,.cls-4{fill:none}.cls-1{stroke:#707070}.cls-2{clip-path:url(#clip-path)}.cls-3,.cls-4{stroke:#000;stroke-width:2px}.cls-3{stroke-linecap:round;stroke-linejoin:round}
+        </style>
+        <clipPath id="clip-path">
+            <path id="Path_1419" d="M0 0h25v25H0z" class="cls-1" data-name="Path 1419" transform="translate(18 40)"/>
+        </clipPath>
+    </defs>
+    <g id="LockIcon" class="cls-2" transform="translate(-18 -40)">
+        <g id="Group_1156" data-name="Group 1156" transform="translate(-32 -321.588)">
+            <rect id="Rectangle_1564" width="16" height="11.733" class="cls-3" data-name="Rectangle 1564" rx="3" transform="translate(54 371.427)"/>
+            <path id="Path_3" d="M501.863 371.844V369.1a5.052 5.052 0 0 1 10.047 0v2.741" class="cls-4" data-name="Path 3" transform="translate(-444.809)"/>
+            <circle id="Ellipse_2" cx="1.6" cy="1.6" r="1.6" class="cls-4" data-name="Ellipse 2" transform="translate(60.4 375.694)"/>
+        </g>
+    </g>
+</svg>

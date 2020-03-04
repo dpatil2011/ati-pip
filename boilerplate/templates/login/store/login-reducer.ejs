@@ -1,0 +1,37 @@
+import { START_AUTHENTICATION, AUTHENTICATION_SUCCESS, AUTHENTICATION_FAILED } from "./login-action-type";
+
+const initialState = {
+    username : "",
+    password : "",
+    isLoading: false,
+    isAuthenticate:false,
+    isDirty:false
+};
+
+const handler = (currentState)=>{
+    const startAuthentication = ()=>{
+        return {...currentState,isLoading:true,isAuthenticate:false, isDirty:false};
+    }
+    const authenticationSuccess = ()=>{
+        return {...currentState,isLoading:false,isAuthenticate:true, isDirty:true};
+    }
+
+    const authenticationFailed = ()=>{
+        return {...currentState,isLoading:false,isAuthenticate:false, isDirty:true};
+    }
+    return {startAuthentication,authenticationSuccess,authenticationFailed};
+}
+
+export default (state = initialState, action)=>{
+    const {payload,type} = action;
+    switch(type){
+        case START_AUTHENTICATION:
+            return handler(state).startAuthentication();
+        case AUTHENTICATION_SUCCESS:
+            return handler(state).authenticationSuccess();
+        case AUTHENTICATION_FAILED:
+            return handler(state).authenticationFailed();
+        default :
+            return state;
+    }
+}

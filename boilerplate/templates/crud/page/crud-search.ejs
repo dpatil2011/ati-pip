@@ -1,0 +1,136 @@
+/**
+ * @author hosea.simanjuntak
+ * This is a data view page. contain data table with a general function that are often used 
+ * like  table search, Add button and action button (view, edit, delete)
+ */
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { AtiPopConfirm } from 'ati-react-web'
+import { Icon, Divider } from 'antd'
+import <%=func.camelCase(crudFileName, {pascalCase: true})%>SearchComponent from './../../modules/<%=func._.kebabCase(crudFileName)%>/component/<%=func._.camelCase(crudFileName)%>SearchComponent';
+import { getAccounts, filterAccounts, deleteAccount } from './../../modules/<%=func._.kebabCase(crudFileName)%>/store/<%=func._.kebabCase(crudFileName)%>-action'
+import { navigate } from './../../common/layout/store/navigate-action'
+
+export class <%=func.camelCase(crudFileName, {pascalCase: true})%>SearchPage extends Component {
+  static propTypes = {
+    prop: PropTypes
+  }
+  
+  /**
+   * prepare table data on page loaded by calling function getAccounts() provided from account-action
+   */
+  componentDidMount(){
+    this.props.getAccounts();
+  }
+
+  sortData = (data1,data2,key) =>{
+    if(data1[key] < data2[key]) return -1;
+    if(data1[key] > data2[key]) return 1;
+    return 0;
+  }
+
+  /**
+   * insert button or other element on action table column
+   * @param {object} record : datatable record object
+   * @private
+   */
+  renderAction = (record) =>{
+    const viewLink = '/modul<%=urlAccessPath%>/detail/' + record.id
+    const editLink = '/modul<%=urlAccessPath%>/edit/' + record.id
+
+    return (
+        <span>
+            <AtiPopConfirm
+              placement='bottomLeft'
+              textConfirm='Are you sure to delete this account?'
+              okText='Of Course'
+              cancelText="I don't think so"
+              events={
+                {onConfirm: () => this.props.deleteAccount(this.props.listAccountTemp,record.id)}
+              }>
+              <a href="javascript:;" className='icon-delete'><Icon type="delete" /></a>
+            </AtiPopConfirm>
+            <Divider type="vertical" />
+            <a href="javascript:;" onClick={()=>this.props.navigate('/modul<%=urlAccessPath%>/',viewLink)} className='icon-delete'><Icon type="eye" /></a>
+            <Divider type="vertical" />
+            <a href="javascript:;" onClick={()=>this.props.navigate('/modul<%=urlAccessPath%>/',editLink)} className='icon-delete'><Icon type="edit"/></a>
+        </span>
+    );
+  }
+
+  /**
+   * generate datatable column structure and configuration
+   * @private
+   */
+  createColumns = () => {
+    const columns = [{
+        title: 'Name',
+        dataIndex: 'name',
+        key:'name',
+        align:'left',
+        fixed:false,
+        sorter:(a,b) => this.sortData(a,b,'name'),
+      },{
+        title: 'Email',
+        dataIndex: 'email',
+        key:'email',
+        align:'left',
+        fixed:false,
+        sorter:(a,b) => this.sortData(a,b,'email'),
+      }, {
+        title: 'Account Number',
+        dataIndex: 'account_number',
+        key:'account_number',
+        align:'left',
+        fixed:false,
+        sorter:(a,b) => this.sortData(a,b,'account_number'),
+      },{
+        title: 'Action',
+        dataIndex: 'action',
+        key:'action',
+        align:'center',
+        fixed:'right',
+        width: 150,
+        render: (text,record) => this.renderAction(record)
+      }];
+
+      return columns;
+  }
+
+  /**
+   * update table data on typing input searchbox
+   */
+  updateTable = (e) => {
+    console.log(e)
+    this.props.filterAccounts(this.props.listAccount,e);
+  }
+
+  /**
+   * onClick handler when add button is clicked
+   */
+  addButtonClick = () => {
+    this.props.navigate('/modul<%=urlAccessPath%>/','/modul<%=urlAccessPath%>/add')
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+          <<%=func.camelCase(crudFileName, {pascalCase: true})%>SearchComponent {...this.props} columns={this.createColumns()} onSearch={this.updateTable} onClick={this.addButtonClick} />
+      </React.Fragment>
+    )
+  }
+}
+
+const mapStateToProps = (state) => ({
+  ...state.<%=crudReducerKey%>
+})
+
+const mapActionToProps = () => ({
+  getAccounts : getAccounts,
+  filterAccounts : filterAccounts,
+  deleteAccount : deleteAccount,
+  navigate : navigate,
+});
+
+export default connect(mapStateToProps, mapActionToProps())(<%=func.camelCase(crudFileName, {pascalCase: true})%>SearchPage)

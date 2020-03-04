@@ -1,0 +1,43 @@
+/**
+* This is a form reducer which is useful for setting function to display a form that can work well.
+*/
+
+import { GET_DATA_PROFILE, UPDATE_DATA_PROFILE, START_PROCESSING_FORM, SUBMIT_SUCCESS, SUBMIT_FAILED } from './<%=func._.kebabCase(formFileName)%>-action-type';
+
+const initialState = {
+    formData: {
+        fullName: '',
+        email: '',
+        phone: '',
+    },
+    isLoading: false,
+    hasError: false,
+};
+
+const handler = (currentState)=>{
+    const startSubmittingForm = ()=>{
+        return {...currentState,isLoading:true};
+    }
+    const submitionSuccess = ()=>{
+        return {...currentState,isLoading:false};
+    }
+
+    const submitionFailed = ()=>{
+        return {...currentState,isLoading:false,hasError:true};
+    }
+    return {startSubmittingForm,submitionSuccess,submitionFailed};
+}
+
+export default (state = initialState, action)=>{
+    const {payload,type} = action;
+    switch(type){
+        case START_PROCESSING_FORM:
+            return handler(state).startSubmittingForm();
+        case SUBMIT_SUCCESS:
+            return handler(state).submitionSuccess();
+        case SUBMIT_FAILED:
+        return handler(state).submitionFailed();
+        default :
+            return state;
+    }
+}

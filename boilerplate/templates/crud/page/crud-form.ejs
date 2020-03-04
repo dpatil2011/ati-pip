@@ -1,0 +1,96 @@
+/**
+ * @author hosea.simanjuntak
+ * This is an example add/edit form page. contain field, form validation , and onSubmit function
+ * @public
+ */
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import <%=func.camelCase(crudFileName, {pascalCase: true})%>FormComponent from './../../modules/<%=func._.kebabCase(crudFileName)%>/component/<%=func._.camelCase(crudFileName)%>FormComponent';
+import { getAccountForForm, submitForm } from './../../modules/<%=func._.kebabCase(crudFileName)%>/store/<%=func._.kebabCase(crudFileName)%>-action'
+import { navigate } from './../../common/layout/store/navigate-action'
+
+export class <%=func.camelCase(crudFileName, {pascalCase: true})%>FormPage extends Component {
+  static propTypes = {
+    prop: PropTypes,
+  }
+
+  state = {
+    name : '',
+    email : '',
+    account_number : '',
+  }
+
+  /**
+   * validate all field on single form
+   * @returns errors {object} : field errors
+   * @private
+   */
+  validate = values => {
+    const errors = {}
+    if (!values.name) {
+      errors.name = 'Required'
+    } else if (values.name.length > 20) {
+      errors.name = 'Must be 20 characters or less'
+    }
+    return errors
+  }
+
+  /**
+   * get initial data form when edit form has loaded
+   */
+  componentDidMount(){
+    if(this.props.match.params.id !== undefined && this.props.match.params.id !== null){
+      this.props.getAccount(this.props.match.params.id,() => {
+        const acc = this.props.account
+        this.setState({name:acc.name,email:acc.email,account_number:acc.account_number})
+      })
+    }
+      
+  }
+
+  /**
+   * handle on button cancel is clicked => redirect to account page
+   */
+  onCancel = () => {
+    this.props.navigate('/modul<%=urlAccessPath%>','/modul<%=urlAccessPath%>')
+  }
+
+  onNumericChange = e =>{
+    this.setState({account_number:e.value})
+  }
+
+  onValueChange = e => {
+    if(e.target.id === 'name')
+      this.setState({name : e.target.value})
+    else
+      this.setState({email : e.target.value})
+  }
+
+  render() {
+    const initialData = {name:this.state.name,email:this.state.email,account_number:this.state.account_number,}
+    return (
+      <React.Fragment>
+          <<%=func.camelCase(crudFileName, {pascalCase: true})%>FormComponent {...this.props}
+            formId={'<%=func.camelCase(crudFileName)%>Form'}
+            onCancel={this.onCancel} 
+            validation={this.validate} 
+            initialData={initialData} 
+            onNumericChange={this.onNumericChange}
+            onValueChange={this.onValueChange}/>
+      </React.Fragment>
+    )
+  }
+}
+
+const mapStateToProps = (state) => ({
+  ...state.<%=crudReducerKey%>
+})
+
+const mapActionToProps = () => ({
+  getAccount : getAccountForForm,
+  onSubmit : submitForm,
+  navigate : navigate,
+});
+
+export default connect(mapStateToProps, mapActionToProps())(<%=func.camelCase(crudFileName, {pascalCase: true})%>FormPage)

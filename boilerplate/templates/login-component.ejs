@@ -1,0 +1,79 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Form, Input, Icon, Checkbox, Button, Alert,notification } from 'antd';
+import './login.css';
+export default class <%=func.camelCase(name,{pascalCase:true})%>Login extends Component {
+
+  static propTypes = {
+      onSubmit : PropTypes.func,
+      onRegisterBtnClick:PropTypes.func,
+      navigate : PropTypes.func
+  }
+
+  static defaultProps = {
+    onSubmit : ()=>{},
+    onRegisterBtnClick:()=>{}
+  }
+
+  state = {
+    username:null,
+    password:null
+  };
+
+  componentWillReceiveProps(props){
+    this.renderSuccessMessage(props);
+  }
+
+  handleSubmission = ()=>{
+      const {onSubmit} = this.props;
+      const {username,password} = this.state;
+      console.log("username",username);
+      onSubmit(username , password);
+  }
+
+  renderSubmitButton = ()=>{
+    return (<Button onClick={this.handleSubmission} loading={this.props.isLoading}  type="primary" htmlType="submit" className="login-form-button">
+              Log in
+           </Button>);
+  }
+
+openNotificationWithIcon = (type,message,description) => {
+    notification[type]({
+      message: message,
+      description: description,
+    });
+  };
+
+  renderSuccessMessage = (props)=>{
+    if(props.isAuthenticate && props.isDirty){
+      this.openNotificationWithIcon('success',"notification","authentication success");
+    }else if(!props.isAuthenticate && props.isDirty){
+      
+      this.openNotificationWithIcon('error',"notification","authentication failed");
+    }
+    return null;
+    
+  }
+
+  render() { 
+    return (
+      <div className="login-box">
+        <h1 className="title"><Icon type="safety" /> Login Form</h1>
+        <Form>
+            <Form.Item>
+              <Input onChange={(e)=>this.setState({username:e.target.value})} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            </Form.Item>
+            <Form.Item>
+              <Input onChange={(e)=>this.setState({password:e.target.value})} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Password" type="password" />
+            </Form.Item>
+            <Form.Item>
+               <Checkbox>Remember me</Checkbox>
+               <a className="login-form-forgot" href="">Forgot password</a>
+                {this.renderSubmitButton()}
+                 Or <a onClick={()=>this.props.onRegisterBtnClick()}>register now!</a>
+            </Form.Item>
+        </Form>
+      </div>
+    )
+  }
+}

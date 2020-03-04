@@ -1,0 +1,61 @@
+/**
+ * @author hosea.simanjuntak
+ * This is dumb component contain search box, add button, data table and an action of account page
+ * a view component using datatable
+ */
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Row, Col } from 'antd'
+import { AtiTable, AtiTextbox, AtiButton } from 'ati-react-web'
+import PageTitle from './../../../common/layout/component/pageTitle'
+import Page from './../../../common/layout/component/content-page'
+
+class <%=func.camelCase(crudFileName, {pascalCase: true})%>SearchComponent extends React.Component{
+    static propTypes = {
+        listAccount : PropTypes.arrayOf(PropTypes.object).isRequired,
+        onSearch : PropTypes.func.isRequired
+    }
+
+    render(){
+        return (
+            <React.Fragment>
+                <Page>
+                    <Row type='flex' justify='start'>
+                        <Col span={8} ><PageTitle text="Manage <%=crudTitle%>"/></Col>
+                        <Col span={6} offset={10}><AtiButton color="success" text="Add <%=crudTitle%>" events={{onClick:this.props.onClick}}  block/></Col>
+                    </Row>
+                    <Row type="flex" justify="end">
+                        <Col span={6}>
+                            <div className='search-content'>
+                                <AtiTextbox id={'table-search-box'} name={'table-search-box'}
+                                    type="text" 
+                                    placeholder={'Search for ...'}
+                                    size={'sm'}
+                                    events={{onChange:this.props.onSearch}}
+                                />
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={24}>
+                            <AtiTable
+                                rowKey={'id'}
+                                id={'content-table'} name={'content-table'}
+                                columns={this.props.columns}
+                                dataSource={this.props.listAccount}
+                                loading={this.props.loading}
+                                showHeader={true}
+                                bordered={true}
+                                footer={false}
+                                rowClassName={()=>'table-row'}
+                                pagination={{showSizeChanger:true,position:'bottom',total:this.props.listAccount.length}}
+                            />
+                        </Col>
+                    </Row>
+                </Page>
+            </React.Fragment>
+        );
+    }
+}
+
+export default <%=func.camelCase(crudFileName, {pascalCase: true})%>SearchComponent

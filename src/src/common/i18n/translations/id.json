@@ -1,0 +1,25 @@
+{
+    "button": {
+        "submit": "Submit"
+    },
+    "label": {
+        "selectDefault": "- Pilih salah satu -",
+        "logout": "Log Out"
+    },
+    "header": {
+        "PreLoginScreen": "Rumah"
+    },
+    "sideMenu": {
+    },
+    "errorMessage": {
+        "passwordRequired": " Nama Pengguna atau Kata Sandi harus diisi.",
+        "invalidPassword" : " Nama Pengguna atau Kata Sandi anda Salah, Silahkan Periksa Kembali.",
+        "invalidAddress": "{{field}} memiliki alamat yang tidak valid atau server sedang dalam perbaikan."
+    },
+    "apiResponse": {
+        "2001": "Kata Sandi anda salah."
+    },
+    "message": {
+        "logout": "Are you sure want to logout?"
+    }   
+}

@@ -1,0 +1,169 @@
+/**
+* This is a basic form component that can be modified.
+* And this component use redux-form web with a sample validation like a AtiField and AtiForm.
+* In this component we can add spinner, button, textbox, datepicker, etc.
+*/
+
+import React, {Component} from 'react';
+import { AtiField, AtiForm } from 'ati-reduxform-web';
+import { AtiSpinner, AtiFieldError, AtiTextbox, AtiButton, AtiDatePicker, AtiTextInputNumeric } from 'ati-react-web';
+import { Row, Col } from 'antd';
+import {connect} from 'react-redux';
+
+class <%=func.camelCase(formComponentName, {pascalCase: true})%> extends Component {
+
+    /**
+    * This is a state to regulate phone number.
+    * Which one phone number is identical with type of number, and this validate is required.
+    */
+
+    state = {
+        phone: ''
+    }
+
+    required = value => (value || typeof value === 'number' ? undefined : 'Required')
+    
+    render() {
+        const {onSubmit, formId, validation, initialData=null, formData, isLoading= false } = this.props;
+        console.log(validation, onSubmit)
+        return (
+                <AtiSpinner spinning={isLoading}>
+                    <AtiForm
+                        onSubmit={onSubmit}
+                        formId={formId}
+                        validation={validation}
+                    >
+                        <Row gutter={18}>
+                            <Col span={6}>
+                                <AtiField name="firstname" required >
+                                    <AtiTextbox id={'firstname'} name={'firstname'}
+                                        placeholder={'First Name ... '}
+                                        type="text" 
+                                        label={'First Name'}
+                                        containerStyle={{marginBottom:0}}
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                            <Col span={6}>
+                                <AtiField name="midlename">
+                                    <AtiTextbox id={'midlename'} name={'midlename'}
+                                        placeholder={'Midle Name ... '}
+                                        type="text" 
+                                        label={'Midle Name'}
+                                        containerStyle={{marginBottom:0}}
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                            <Col span={6}>
+                                <AtiField name="lastname">
+                                    <AtiTextbox id={'lastname'} name={'lastname'}
+                                        placeholder={'last Name ... '}
+                                        type="text" 
+                                        label={'Last Name'}
+                                        containerStyle={{marginBottom:0}}
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                        </Row>
+                        <Row gutter={18}>
+                            <Col span={9}>
+                                <AtiField name="ktp" required>
+                                    <AtiTextbox id={'ktp'} name={'ktp'}
+                                        placeholder={'No KTP ... '}
+                                        type="text" 
+                                        label={'KTP'}
+                                        containerStyle={{marginBottom:0}}
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                            <Col span={9}>
+                                <AtiField name="dob" required>
+                                <AtiDatePicker
+                                    label={'Tanggal Lahir'}
+                                    disableOnClickOutside={false}
+                                    timeFormat={false}
+                                    locale={'id'}
+                                    dateFormat={'YYYY/DD/MM'}
+                                    input={true}
+                                    closeOnSelect={true}
+                                    validDate={(current) => {
+                                        return current.day() !== 0 && current.day() !== 6
+                                    }}
+                                    placeholder={'Tanggal Lahir'}
+                                    readonly={false}
+                                    containerStyle={{marginBottom:0}}
+                                />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                        </Row>
+                        <Row gutter={18}>
+                            <Col span={9}>
+                                <AtiField name="email" required>
+                                    <AtiTextbox id={'email'} name={'email'}
+                                        placeholder={'Email ... '}
+                                        type="text" 
+                                        label={'Email'}
+                                        containerStyle={{marginBottom:0}}
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                            <Col span={9}>
+                                <AtiField name="phone">
+                                    <AtiTextInputNumeric id='phonenumber' name='phonenumber' label='Phone Number'
+                                        scale={10} precision={5} className='text-input-numeric-custom'
+                                        thousandSeparator={false} placeholder={'Phone Number... '}
+                                        value={this.state.phone}
+                                        events={
+                                            {
+                                            onValueChange: (params) => {
+                                                console.log(params)
+                                                this.setState({phone: params.value})  
+                                            }
+                                            }
+                                        }
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                        </Row>
+                        <Row gutter={18}>
+                            <Col span={18}>
+                                <br/>
+                            </Col>
+                        </Row>
+                        <Row gutter={18}>
+                            <Col span={6}>
+                            <AtiButton type={'submit'}
+                                id={'submitButton'}
+                                name={'submitButton'}
+                                size={'md'}
+                                block={true}
+                                color={'warning'}
+                                text={'Submit'}
+                            />
+                            </Col>
+                        </Row>
+                    </AtiForm>
+                </AtiSpinner>
+        )
+    }
+}
+
+
+const mapStateToProps = (state,props)=>{
+    return { ...state.profile };
+}
+
+const mapActionToProp = () => {
+    return {};
+}
+
+//export default connect(mapStateToProps,mapActionToProp())(UserProfile);
+
+export default <%=func.camelCase(formComponentName, {pascalCase: true})%>;

@@ -1,0 +1,11 @@
+export const TOOGLE_COLLAPSE = '@layout/toogle_collapse';
+export const START_GET_MENUS = '@layout/start_get_menus';
+export const FINISH_GET_MENUS = '@layout/finish_get_menus';
+export const GET_TASK = '@layout/get_task';
+export const LOAD_NOTIF = '@layout/load_notif';
+export const TOOGLE_DRAWER = '@layout/toogle_drawer';
+export const SELECT_MENU = '@layout/select_menu';
+export const CHANGE_OPENED_MENU = '@layout/change_opened_menu';
+export const SET_USER = '@layout/set_user';
+export const LOGOUT = '@layout/logout';
+export const GET_MENUS = '@layout/get_menus';

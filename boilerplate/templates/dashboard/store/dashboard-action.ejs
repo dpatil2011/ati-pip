@@ -1,0 +1,21 @@
+import {  push } from 'react-router-redux'
+
+import { TEST_PROCESS } from "./dashboard-action-type";
+import { AtiMessage } from 'ati-react-web';
+
+
+export const testDispatch = ()=>{
+    return (dispatch)=>{
+        /* to dispatch this process of test */
+       dispatch(testProcess());
+       /* to show message return success of dispatch result */
+       AtiMessage({type: 'success', message: "this is message", duration: 10})
+    }
+};
+
+const testProcess = ()=>{
+    return {
+        type: TEST_PROCESS,
+        payload:{}
+    };
+}

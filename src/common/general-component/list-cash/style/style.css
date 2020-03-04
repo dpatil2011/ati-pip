@@ -1,0 +1,23 @@
+.cash-type-Credit {
+    color: #28a2ab;
+    margin-bottom: 0px;
+}
+
+.cash-type-Debit {
+    color: #dd4a39;
+    margin-bottom: 0px;
+}
+
+.cash-type-min-Credit {
+    display: none;
+}
+
+.cash-type-plus-Debit {
+    display: none;
+}
+
+/* .ant-list-pagination {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+} */

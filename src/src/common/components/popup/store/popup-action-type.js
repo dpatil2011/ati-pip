@@ -1,0 +1,14 @@
+export const SET_VISIBLE_ALERT = '@popup/set_visible_alert';
+export const SET_VISIBLE_CONFIRM = '@popup/set_visible_confirm';
+export const SET_VISIBLE_PROGRESS = '@popup/set_visible_progress';
+export const SET_TITLE = '@popup/set_title';
+export const SET_MESSAGE = '@popup/set_message';
+export const SET_MESSAGE_PARAM = '@popup/set_message_param';
+export const SET_BUTTON_TEXT_ALERT = '@popup/set_button_text_alert';
+export const SET_EVENTS_ALERT = '@popup/set_events_alert';
+export const SET_BUTTON_TEXT_NEGATIVE = '@popup/set_button_text_negative';
+export const SET_BUTTON_TEXT_POSITIVE = '@popup/set_button_text_positive';
+export const SET_EVENTS_CONFIRM_NEGATIVE = '@popup/set_events_confirm_negative';
+export const SET_EVENTS_CONFIRM_POSITIVE = '@popup/set_events_confirm_positive';
+export const SET_VISIBLE_TOAST = '@popup/set_visible_toast';
+export const SET_STATUS_BAR_COLOR = '@popup/set_status_bar_color';

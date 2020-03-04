@@ -1,0 +1,163 @@
+{
+    "name":"CRUD Screen",
+    "description":"",
+    "params":{
+        "crudFileName":{
+            "type":"text",
+            "message": "CRUD File Name",
+            "validations":["required"]
+        },
+        "urlAccessPath":{
+            "type":"text",
+            "message": "Url route to access CRUD page",
+            "validations":["required"]
+        },
+        "crudReducerKey":{
+            "type":"text",
+            "message": "CRUD Reducer Key",
+            "validations":["required"]
+        },
+        "crudTitle":{
+            "type":"text",
+            "message": "CRUD Title ",
+            "validations":["required"]
+        }
+    },
+    "context":{
+        "appTarget":"src/app/<%=func._.kebabCase(crudFileName)%>",
+        "moduleTarget":"src/modules/<%=func._.kebabCase(crudFileName)%>",
+        "routeConfigPath": "src/common/route",
+        "reducerConfigPath": "src/common/store"
+    },
+    "steps":[
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/page/crud-search.ejs",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(crudFileName)%>-search-page.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/page/crud-form.ejs",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(crudFileName)%>-form-page.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/page/crud-detail.ejs",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(crudFileName)%>-detail-page.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/component/crud-search.ejs",
+            "target":"<%=context.moduleTarget%>/component/<%=func._.camelCase(crudFileName)%>SearchComponent.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/component/crud-form.ejs",
+            "target":"<%=context.moduleTarget%>/component/<%=func._.camelCase(crudFileName)%>FormComponent.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/component/crud-detail.ejs",
+            "target":"<%=context.moduleTarget%>/component/<%=func._.camelCase(crudFileName)%>DetailComponent.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/store/crud-action-type.ejs",
+            "target":"<%=context.moduleTarget%>/store/<%=func._.kebabCase(crudFileName)%>-action-type.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/store/crud-action.ejs",
+            "target":"<%=context.moduleTarget%>/store/<%=func._.kebabCase(crudFileName)%>-action.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/store/crud-reducer.ejs",
+            "target":"<%=context.moduleTarget%>/store/<%=func._.kebabCase(crudFileName)%>-reducer.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"crud/sample-data/MOCK_DATA.ejs",
+            "target":"<%=context.moduleTarget%>/sample-data/MOCK_DATA.json"
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.moduleTarget%>/store/<%=func._.kebabCase(crudFileName)%>-reducer.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"router:routerReducer,",
+                        "templateName":"crud/redux-config/crud-template.ejs"
+                    },
+                    {
+                        "matches":"import { createStore,combineReducers, applyMiddleware } from \"redux\";",
+                        "templateName":"crud/redux-config/crud-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.reducerConfigPath%>/index.js",
+                "addNewLine":true
+            }
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(crudFileName)%>-search-page.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"child\\: \\[",
+                        "templateName":"crud/navigation/crud-search-route.ejs"
+                    },
+                    {
+                        "matches":"// start import component",
+                        "templateName":"crud/navigation/crud-search-import.ejs"
+                    }
+                ],
+                "target":"<%=context.routeConfigPath%>/router-config.js",
+                "addNewLine":true
+            }
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(crudFileName)%>-form-page.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"child\\: \\[",
+                        "templateName":"crud/navigation/crud-form-route.ejs"
+                    },
+                    {
+                        "matches":"// start import component",
+                        "templateName":"crud/navigation/crud-form-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.routeConfigPath%>/router-config.js",
+                "addNewLine":true
+            }
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(crudFileName)%>-detail-page.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"child\\: \\[",
+                        "templateName":"crud/navigation/crud-detail-route.ejs"
+                    },
+                    {
+                        "matches":"// start import component",
+                        "templateName":"crud/navigation/crud-detail-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.routeConfigPath%>/router-config.js",
+                "addNewLine":true
+            }
+        }
+    ]
+}

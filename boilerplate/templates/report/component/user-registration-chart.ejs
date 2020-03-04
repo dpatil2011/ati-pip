@@ -1,0 +1,73 @@
+/**
+* This user registration chart component is used to create reports about chart of user registration.
+* Which one there is a function to know loadingReportUser, dataRegistrationReport, dataRegistrationMap, etc.
+*/
+
+import React from 'react';
+import { AtiBarChart, AtiSpinner } from 'ati-react-web';
+import PropTypes from 'prop-types';
+import './../style/style.css';
+
+class UserRegistrationChart extends React.Component{
+
+    /**
+    * This is a propTypes to explain this static function properties.
+    */
+
+    static propTypes = {
+        dataRegistrationReport: PropTypes.arrayOf(PropTypes.object),
+        dataRegistrationMap: PropTypes.arrayOf(PropTypes.object),
+        margin: PropTypes.object,
+        width: PropTypes.string,
+        height: PropTypes.string,
+    }
+
+    /**
+    * This is a defaultProps to define default of properties.
+    */
+
+    static defaultProps = {
+        dataRegistrationReport: [],
+        dataRegistrationMap: [],
+        margin: { top: 0, right: 5, bottom: 5, left: 0 },
+        width: '90%',
+        height: '75%',
+    }
+
+    componentWillMount() {
+        const {getUserReport} = this.props;
+        if(getUserReport)getUserReport();
+    }
+
+    render(){
+        const {
+            loadingReportUser,
+            dataRegistrationReport,
+            dataRegistrationMap,
+            margin,
+            width,
+            height
+        } = this.props;
+        console.log(dataRegistrationReport, dataRegistrationMap)
+        const flag = true;
+        return(
+            loadingReportUser ?
+            <AtiSpinner
+                spinning={loadingReportUser}
+                tip="fetching data.."
+                wrapperClassName="wrapper-loading-report"
+            />
+            :
+            <AtiBarChart
+                dataSource={dataRegistrationReport}
+                dataBar={dataRegistrationMap}
+                width= {width}
+                height= {height}
+                reverseStackOrder={false}
+                margin = {margin}
+            />
+        )
+    }
+}
+
+export default UserRegistrationChart;

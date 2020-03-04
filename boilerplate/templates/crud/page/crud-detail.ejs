@@ -1,0 +1,42 @@
+/**
+ * @author hosea.simanjuntak
+ * This is an example of master detail page. 
+ * this page contain full information of spesific record data using AtiList component
+ * @public
+ */
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import <%=func.camelCase(crudFileName, {pascalCase: true})%>DetailComponent from './../../modules/<%=func._.kebabCase(crudFileName)%>/component/<%=func._.camelCase(crudFileName)%>DetailComponent';
+import { getAccount } from './../../modules/<%=func._.kebabCase(crudFileName)%>/store/<%=func._.kebabCase(crudFileName)%>-action'
+
+export class <%=func.camelCase(crudFileName, {pascalCase: true})%>DetailPage extends Component {
+  static propTypes = {
+    prop: PropTypes
+  }
+  
+  /**
+  * populate data detail account on this page is loaded
+  */
+  componentDidMount(){
+    this.props.getAccount(this.props.match.params.id);
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+          <<%=func.camelCase(crudFileName, {pascalCase: true})%>DetailComponent {...this.props} />
+      </React.Fragment>
+    )
+  }
+}
+
+const mapStateToProps = (state) => ({
+  ...state.<%=crudReducerKey%>
+})
+
+const mapActionToProps = () => ({
+  getAccount : getAccount
+});
+
+export default connect(mapStateToProps, mapActionToProps())(<%=func.camelCase(crudFileName, {pascalCase: true})%>DetailPage)

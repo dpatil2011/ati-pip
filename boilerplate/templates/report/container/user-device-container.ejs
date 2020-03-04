@@ -1,0 +1,27 @@
+/**
+* This is a container of user device component, which one can accommodate component from device report.
+*/
+
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { updateDeviceReport } from '../store/report-action';
+import DeviceReport from '../component/device-report';
+
+class DeviceReportContainer extends Component {
+    
+    render() {
+       return(
+            <DeviceReport {...this.props}/>
+        )
+    }
+}
+
+const mapStateToProps = (state) => ({
+    ...state.userReport
+  })
+  
+  const mapActionToProps = () => ({
+    getDeviceReport: updateDeviceReport,
+  });
+  
+export default connect(mapStateToProps,mapActionToProps())(DeviceReportContainer);

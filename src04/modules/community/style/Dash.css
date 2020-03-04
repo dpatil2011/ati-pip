@@ -1,0 +1,240 @@
+.modal-confirm {
+  width: 452px;
+  height: 100%;
+  background-color: #2a2e43;
+}
+.buttonRow {
+  justify-content: center;
+}
+.margin {
+}
+.pin {
+  margin-top: 40;
+  font-family: AvenirNextLTPro;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.modal-pin {
+  width: 452px;
+  height: 823px;
+  background-color: #28a2ab;
+}
+.margin-top-0 {
+  margin-top: 30px;
+}
+.margin-top-1 {
+  margin-top: 10px;
+  margin-left: 140px;
+}
+.margin-top-2 {
+  margin-top: 50px;
+}
+.margin-top-10 {
+  margin-top: 30px;
+}
+.closeImage {
+  height: 13px;
+  width: 13px;
+  color: #ffffff;
+}
+.konfirmasi-style {
+  height: 25px;
+  font-family: AvenirNextLTPro;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: normal;
+  color: #ffffff;
+  align-self: center;
+}
+.text-style1 {
+  margin-left: 25px;
+  width: 108px;
+  height: 14px;
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.text-bold {
+  margin-right: 25px;
+  width: 36px;
+  height: 14px;
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: right;
+  color: #43425d;
+}
+.bill-confirm-body {
+  align-self: center;
+  margin-top: 20px;
+  width: 400px;
+  height: 395.4px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+}
+.bill-success-body {
+  margin-top: 20px;
+  width: 400px;
+  height: 513px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  align-self: center;
+}
+.text-tambah {
+  margin-left: 157px;
+  width: 156px;
+  height: 18px;
+  font-family: AvenirNextLTPro;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}
+.text-Berhasil {
+  margin-left: 129px;
+  width: 138px;
+  height: 16px;
+  font-family: AvenirNextLTPro;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}
+.bill-divider-footer {
+  border-top: 1px #2a2e43 dashed;
+  margin-bottom: 15px;
+  width: 350px;
+  align-self: start;
+}
+.text-total {
+  margin-right: 25px;
+  width: 92px;
+  height: 18px;
+  font-family: AvenirNextLTPro;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: right;
+  color: #28a2ab;
+}
+.pin-style {
+  width: 284px;
+  height: 24px;
+  font-family: AvenirNextLTPro;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+.min-style {
+  width: 251px;
+  height: 30px;
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+.button-view {
+  margin-top: 40px;
+  margin-left: 70px;
+  width: 280px;
+  height: 52px;
+  border-radius: 7px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+}
+.Cetak-style {
+  margin-left: 10px;
+  width: 146px;
+  height: 15px;
+  font-family: AvenirNextLTPro-Demi;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}
+
+.title-form {
+  font-family: Avenir Next LT Pro Bold;
+  font-size: 23px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.description-form {
+  font-family: Avenir Next LT Pro Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.forgot-button {
+  margin-top: 25px !important;
+  padding: 15px !important;
+  height: 50px !important;
+  width: 140px !important;
+}
+
+.pocket-btn-center {
+  font-family: AvenirNextLTPro;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}

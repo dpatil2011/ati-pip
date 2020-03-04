@@ -1,0 +1,90 @@
+/**
+* This component is the main container of all the dashboard content displayed.
+* In this component all fractions of the existing components, be it widgets, pie charts,
+* and report containers are displayed. And wrapped into one dashboard component.
+*/
+
+import React, {Component} from 'react';
+import {AtiDashboard, AtiDashboardItem, AtiPieChart} from 'ati-react-web';
+import {Icon, Row, Col} from 'antd';
+import './../style/<%=func._.kebabCase(dashboardComponentName)%>-style.css';
+import PropTypes from 'prop-types';
+import WidgetRole from './widget/<%=func._.kebabCase(dashboardFileName)%>/widget-role';
+import WidgetSystemDate from './widget/<%=func._.kebabCase(dashboardFileName)%>/widget-system-date';
+import WidgetEmail from './widget/<%=func._.kebabCase(dashboardFileName)%>/widget-email';
+import WidgetUser from './widget/<%=func._.kebabCase(dashboardFileName)%>/widget-user';
+import ReportContainer from './report/report-container';
+
+class <%=func.camelCase(dashboardComponentName, {pascalCase: true})%> extends Component {
+    static propTypes = {
+        layouts: PropTypes.object,
+        dataProgressReport: PropTypes.arrayOf(
+            PropTypes.shape({
+                key: PropTypes.string,
+                name: PropTypes.string,
+                value: PropTypes.number,
+                color: PropTypes.string
+            })
+        )
+    }
+
+    /* This is default property to adjust the layout of item components on the dashboard */
+    static defaultProps = {
+        layouts:
+        {lg: [
+            {i:'1', x: 0, y: 0, w: 10, h: 2, static: true},
+            {i:'2',x: 11, y: 0, w: 10, h: 2, static: true},
+            {i:'3',x: 22, y: 0, w: 10, h: 2, static: true},
+            {i:'4',x: 33, y: 0, w: 10, h: 2, static: true},
+            {i:'5',x: 0, y: 2.5, w: 32, h: 6, static: true},
+            {i:'6',x: 33, y: 2.5, w: 10, h: 6, static: true},
+            {i:'7',x: 0, y: 9, w: 21, h: 5, static: true},
+            {i:'8',x: 22, y: 9, w: 21, h: 5, static: true}
+            ]
+        },
+        dataProgressReport: [],
+    }
+
+    render(){ 
+        const {layouts} = this.props;
+        return(
+            <div style = {{backgroundColor : "#f0f0f8"}}>
+                <div style = {{padding : '10px'}}>
+                    <AtiDashboard
+                        cols = {{lg: 43, md:43, sm: 43, xs: 43, xxs: 43}}
+                        isRessizable = {true}
+                        isDraggable = {true}
+                        layouts = {layouts}
+                        rowHeight = {40}
+                        preventCollision = {true}
+                    >
+                        <AtiDashboardItem key = "1">
+                            <WidgetRole />
+                        </AtiDashboardItem>
+                        <AtiDashboardItem key = "2">
+                            <WidgetSystemDate/>
+                        </AtiDashboardItem>
+                        <AtiDashboardItem key = "3">
+                            <WidgetEmail/>
+                        </AtiDashboardItem>
+                        <AtiDashboardItem key = "4">
+                            <WidgetUser/>
+                        </AtiDashboardItem>
+                        <AtiDashboardItem key = "5">
+                        <div className = "dashboard-item gray-border" style = {{backgroundColor : "#ffffff", paddingLeft : '20px',paddingTop : '5px', color : 'grey'}}>
+                                <p style = {{fontSize : '20px'}}><b>Widget 1</b></p>
+                            </div>
+                        </AtiDashboardItem>
+                        <AtiDashboardItem key = "6">
+                        <div className = "dashboard-item gray-border" style = {{backgroundColor : "#ffffff", paddingLeft : '20px',paddingTop : '5px', color : 'grey'}}>
+                                <p style = {{fontSize : '20px'}}><b>Widget 2</b></p>
+                            </div>
+                        </AtiDashboardItem>
+                    </AtiDashboard> 
+                </div>
+            </div>
+        )
+    }
+}
+
+export default <%=func.camelCase(dashboardComponentName, {pascalCase: true})%>;

@@ -1,0 +1,46 @@
+/**
+ * @author hosea.simanjuntak
+ * This component is main container of master detail page
+ * this component contains elements and their functions which renders the master detail container 
+ * that accepts attributes / functions as props 
+ * @public
+ */
+ 
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Row, Col } from 'antd'
+import { AtiList } from 'ati-react-web'
+import PageTitle from './../../../common/layout/component/pageTitle'
+import Page from './../../../common/layout/component/content-page'
+
+class <%=func.camelCase(crudFileName, {pascalCase: true})%>DetailComponent extends React.Component{
+    static propTypes = {
+        listData : PropTypes.arrayOf(PropTypes.object).isRequired,
+    }
+
+    render(){
+        return (
+            <React.Fragment>
+                <Page>
+                    <Row>
+                        <Col>
+                            <PageTitle text="Detail <%=crudTitle%>"/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={4}>
+                            <img src='https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png' height='200px' width='200px'/>
+                        </Col>
+                        <Col span={18} offset={2}>
+                            <AtiList
+                                dataSource={this.props.listData}
+                            />
+                        </Col>
+                    </Row>
+                </Page>
+            </React.Fragment>
+        );
+    }
+}
+
+export default <%=func.camelCase(crudFileName, {pascalCase: true})%>DetailComponent

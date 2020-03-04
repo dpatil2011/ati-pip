@@ -1,0 +1,92 @@
+/**
+* This is the main component of the login component, where this component has a design login consisting of login boxes, buttons, etc.
+*/
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Form, Input, Icon, Checkbox, Button, Alert,notification } from 'antd';
+import './login.css';
+import { AtiSpinner, AtiLogin } from 'ati-react-web';
+import bgImage from './../../../assets/images/background.jpeg';
+
+const container = {
+    width : '100%',
+    height : '125vh',
+    backgroundImage : `url(${bgImage})`,
+    display : 'inline-block'
+};
+export default class <%=func.camelCase(loginComponentFileName, {pascalCase: true})%> extends Component {
+
+  static propTypes = {
+      onSubmit : PropTypes.func,
+      onRegisterBtnClick:PropTypes.func,
+      navigate : PropTypes.func
+  }
+
+  static defaultProps = {
+    onSubmit : ()=>{},
+    onRegisterBtnClick:()=>{}
+  }
+
+  state = {
+    username:null,
+    password:null
+  };
+
+  componentWillReceiveProps(props){
+    this.renderSuccessMessage(props);
+  }
+
+  handleUsernameChange = (value) =>{
+    this.setState({...this.state, username : value})
+  }
+
+  handlePasswordChange = (value) =>{
+    this.setState({...this.state, password : value})
+  }
+
+  
+  openNotificationWithIcon = (type,message,description) => {
+    notification[type]({
+      message: message,
+      description: description,
+    });
+  };
+
+  renderSuccessMessage = (props)=>{
+    if(props.isAuthenticate && props.isDirty){
+      this.openNotificationWithIcon('success',"notification","authentication success");
+    }else if(!props.isAuthenticate && props.isDirty){
+      
+      this.openNotificationWithIcon('error',"notification","authentication failed");
+    }
+    return null;
+    
+  }
+
+  render() { 
+    return (
+      <div id = "holder">
+        <div style = {container}>
+          <h1 className = "text-center text-title text-color"><b>My</b>Application</h1>
+          <AtiSpinner spinning={this.props.isLoading}>
+            <AtiLogin
+                title = "Login to your Account"
+                footer = {
+                    <div>Forgot Password ? <a href = "#">Click Here</a></div>
+                }
+                events = {
+                    {
+                        handleOnSubmit : this.props.onSubmit
+                    }
+                }
+                style={{
+                    backgroundColor: '#ffffff',
+                  }}
+            />   
+            </AtiSpinner>
+        </div>
+      </div>
+    )
+  }
+}

@@ -1,0 +1,22 @@
+/**
+* This component is part of the widget which is a base widget.
+* And is used to displays what role is that user using.
+*/
+
+import React, {Component} from 'react';
+import Widget from './base-widget';
+
+class WidgetRole extends Component {
+    render(){
+        return(
+            <Widget
+                backgroundColor="#80c7fd"
+                icon="contacts"
+                title="User Role"
+                value="Administrator"
+            />
+        );
+    }
+}
+
+export default WidgetRole;

@@ -1,0 +1,22 @@
+/**
+* This component is part of the widget which is a base widget.
+* And is used to displays email notifications on the dashboard page.
+*/
+
+import React, {Component} from 'react';
+import Widget from './base-widget';
+
+class WidgetEmail extends Component {
+    render(){
+        return(
+            <Widget
+                backgroundColor="#87a8b7"
+                icon="mail"
+                title="E-mail"
+                value="3 new email"
+            />
+        );
+    }
+}
+
+export default WidgetEmail;

@@ -1,0 +1,44 @@
+import {  push } from 'react-router-redux'
+import { START_AUTHENTICATION, AUTHENTICATION_SUCCESS, AUTHENTICATION_FAILED } from './login-action-type';
+
+export const authenticate = (username,password)=>{
+
+    return (dispatch)=>{
+
+        dispatch(startAuthentication());
+
+        /* this function is used so that the login can run,
+        using username : admin
+        and password : password
+        */
+        const timeout = setTimeout(()=>{
+            console.log("username",username);
+            if(username == "admin" && password =="password"){
+                dispatch(authenticationSuccess());
+                dispatch(push("/modul"));
+                
+            }else{
+                dispatch(authenticationFailed());
+            }
+            clearTimeout(timeout);
+        },5000);        
+    }
+};
+
+const startAuthentication = ()=>{
+    return {
+        type: START_AUTHENTICATION
+    };
+}
+
+const authenticationSuccess = ()=>{
+    return {
+        type: AUTHENTICATION_SUCCESS
+    };
+}
+
+const authenticationFailed = ()=>{
+    return {
+        type: AUTHENTICATION_FAILED
+    };
+}

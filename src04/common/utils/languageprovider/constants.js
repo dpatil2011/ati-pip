@@ -1,0 +1,5 @@
+export const CHANGE_LOCALE = 'CHANGE_LOCALE';
+export const DEFAULT_LOCALE = 'id';
+export const DEFAULT_LOCALE_CHOICE = ['en', 'id'];
+export const NOTIFICATION_LOCALE = 'NOTIFICATION_LOCALE';
+export const CHANGE_VALUE_LOCALE = 'CHANGE_VALUE_LOCALE';

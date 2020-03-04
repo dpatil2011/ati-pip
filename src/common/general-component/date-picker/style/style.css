@@ -1,0 +1,45 @@
+
+.transaction-choose {
+    /* background-color: #fafafa !important; */
+    /* width: 101px; */
+    height: 40px;
+    font-size: 12px !important;
+    line-height: 0px !important;
+    background: url("./../images/Date.svg") no-repeat 5% 50%;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: AvenirNextLTPro;
+    padding-left: 35px;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    border-radius: 7px;
+    color: #000000;
+    border: solid 1px #d6d6d6;
+    background-color: var(--white);
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.08);
+
+  
+}
+transaction-choose1 {
+    width: 151px;
+    height: 40px;
+    background: url("./../images/Date.svg") no-repeat 5% 50%;
+    border-radius: 7px;
+    box-shadow: 0 4px 16px 0 rgba(69, 91, 99, 0.08);
+    border: solid 1px #d6d6d6;
+    background-color: var(--white);
+    font-family: AvenirNextLTPro;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+}

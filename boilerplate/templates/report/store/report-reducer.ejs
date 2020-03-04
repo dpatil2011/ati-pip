@@ -1,0 +1,106 @@
+import { 
+    UPDATE_DATA_REPORT,
+    START_UPDATE_DATA,
+    FETCH_REPORT_SUCCESS,
+    FETCH_REPORT_FAILED,
+    UPDATE_DATA_DEVICE,
+    START_UPDATE_DATA_DEVICE,
+    FETCH_DEVICE_SUCCESS,
+    FETCH_DEVICE_FAILED,
+ } from "./report-action-type";
+
+const initialState = {
+    /**
+     * state for user registration report
+     */
+    dataRegistrationReport: [],
+    dataRegistrationMap: [],
+    loadingReportUser: false,
+    hasErrorUserReport: false,
+    userReportErrors: {},
+    /**
+     * state for user device report
+     */
+    dataDeviceReport: [],
+    loadingDeviceReport: false,
+    hasErrorDevice: false,
+    deviceErrors: {}
+};
+
+const handler = (currentState)=>{
+    /**
+     * handler for user registration report
+     */
+    const updateDataReport = (dataRegistrationReport,dataRegistrationMap)=>{
+        return {
+            ...currentState,
+            dataRegistrationReport,
+            dataRegistrationMap,
+        };
+    }
+    const startUpdateDataReport = (data)=>{
+        return {...currentState,loadingReportUser: true};
+    }
+    const fetchReportSuccess = ()=>{
+        return {...currentState,loadingReportUser: false};
+    }
+    const fetchReportError = (errors)=>{
+        return {...currentState,loadingReportUser: false, hasErrorUserReport: true, userReportErrors: errors};
+    }
+    /**
+     * handler for user device report
+     */
+    const updateDataDevice = (data)=>{
+        return {...currentState,dataDeviceReport: data};
+    }
+    const startUpdateData = (data)=>{
+        return {...currentState,loadingDeviceReport: true};
+    }
+    const fetchDeviceSuccess = ()=>{
+        return {...currentState,loadingDeviceReport: false};
+    }
+    const fetchDeviceError = (errors)=>{
+        return {...currentState,loadingDeviceReport: false, hasErrorDevice: true, deviceErrors: errors};
+    }
+    return { 
+        updateDataReport,
+        startUpdateDataReport,
+        fetchReportSuccess,
+        fetchReportError,
+        updateDataDevice,
+        startUpdateData,
+        fetchDeviceSuccess,
+        fetchDeviceError
+    };
+}
+
+export default (state = initialState, action)=>{
+    const {payload,type} = action;
+    switch(type){
+        /**
+         * User Registration Report
+         */
+        case UPDATE_DATA_REPORT:
+            console.log(payload)
+            return handler(state).updateDataReport(payload.data, payload.map);
+        case START_UPDATE_DATA:
+            return handler(state).startUpdateDataReport();
+        case FETCH_REPORT_SUCCESS:
+            return handler(state).fetchReportSuccess();
+        case FETCH_REPORT_FAILED:
+            return handler(state).fetchReportError(payload);
+        /**
+         * User Device Report
+         */
+        case UPDATE_DATA_DEVICE:
+            return handler(state).updateDataDevice(payload);
+        case START_UPDATE_DATA_DEVICE:
+            return handler(state).startUpdateData();
+        case FETCH_DEVICE_SUCCESS:
+            return handler(state).fetchDeviceSuccess();
+        case FETCH_DEVICE_FAILED:
+            return handler(state).fetchDeviceError(payload);
+        default :
+            return state;
+    }
+}

@@ -1,0 +1,22 @@
+/**
+* This component is part of the widget which is a base widget.
+* And is used to displays all the total users in this system.
+*/
+
+import React, {Component} from 'react';
+import Widget from './base-widget';
+
+class WidgetUser extends Component {
+    render(){
+        return(
+            <Widget
+                backgroundColor="#c1a4de"
+                icon="team"
+                title="Total User"
+                value="234 Users"
+            />
+        );
+    }
+}
+
+export default WidgetUser;

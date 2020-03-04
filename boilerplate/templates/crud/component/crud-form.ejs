@@ -1,0 +1,106 @@
+/**
+ * @author hosea.simanjuntak
+ * This component is main container of add and edit form in account module
+ * this component contains elements and their functions which renders account form with validation
+ * only accepts attributes / functions as props 
+ * @public
+ */
+import React, {Component} from 'react';
+import { AtiField, AtiForm } from 'ati-reduxform-web';
+import { AtiSpinner, AtiFieldError, AtiTextbox, AtiButton, AtiTextInputNumeric } from 'ati-react-web';
+import { Row, Col } from 'antd'
+import PageTitle from './../../../common/layout/component/pageTitle'
+import Page from './../../../common/layout/component/content-page'
+
+class <%=func.camelCase(crudFileName, {pascalCase: true})%>FormComponent extends React.Component{
+   
+    required = value => (value || typeof value === 'number' ? undefined : 'Required')
+    render() {
+        const {onSubmit, onCancel, formId, validation, initialData, onValueChange, loading=false, onNumericChange } = this.props;
+        return (
+            <Page>
+                <AtiSpinner spinning={loading}>
+                    <AtiForm
+                        initialValues={initialData}
+                        onSubmit={onSubmit}
+                        formId={formId}
+                        validation={validation}
+                    >   
+                        <Row gutter={18}>
+                            <Col>
+                                <PageTitle text="Form <%=crudTitle%>"/>
+                            </Col>
+                        </Row>
+                        <Row gutter={18} type="flex" justify="center" align="middle">
+                            <Col span={10}>
+                                <AtiField name="name" required >
+                                    <AtiTextbox id={'name'} name={'name'}
+                                        placeholder={'Name ... '}
+                                        type="text" 
+                                        label={'Name'}
+                                        value={initialData.name}
+                                        events={{onChange: onValueChange}}
+                                        containerStyle={{marginBottom:0}}
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                        </Row>
+                        <Row gutter={18} type="flex" justify="center" align="middle">
+                            <Col span={10}>
+                                <AtiField name="email" required >
+                                    <AtiTextbox id={'email'} name={'email'}
+                                        placeholder={'Email ... '}
+                                        type="text" 
+                                        label={'Email'}
+                                        value={initialData.email}
+                                        events={{onChange: onValueChange}}
+                                        containerStyle={{marginBottom:0}}
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                        </Row>
+                        <Row gutter={18} type="flex" justify="center" align="middle">
+                            <Col span={10}>
+                                <AtiField name="account_number">
+                                    <AtiTextInputNumeric id='account_number' name='account_number' label='Account Number'
+                                        scale={10} precision={5} className='text-input-numeric-custom'
+                                        thousandSeparator={false} placeholder={'Account Number... '}
+                                        value={initialData.account_number}
+                                        events={{onValueChange: onNumericChange }}
+                                    />
+                                    <AtiFieldError />
+                                </AtiField>
+                            </Col>
+                        </Row>
+                        <Row gutter={18} type="flex" justify="center" align="middle">
+                            <Col span={5}>
+                                <AtiButton type={'submit'}
+                                    id={'submitButton'}
+                                    name={'submitButton'}
+                                    size={'md'}
+                                    block={true}
+                                    color={'warning'}
+                                    text={'Submit'}
+                                />
+                            </Col>
+                            <Col span={5}>
+                                <AtiButton id={'cancelButton'}
+                                    name={'cancelButton'}
+                                    size={'md'}
+                                    block={true}
+                                    color={'danger'}
+                                    text={'Cancel'}
+                                    events={{onClick:onCancel}}
+                                />
+                            </Col>
+                        </Row>
+                    </AtiForm>
+                </AtiSpinner>
+            </Page>
+        )
+    }
+}
+
+export default <%=func.camelCase(crudFileName, {pascalCase: true})%>FormComponent

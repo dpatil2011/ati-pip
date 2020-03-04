@@ -1,0 +1,82 @@
+/**
+* This is a form action, where all functions are declared so that they can be used and called from outside the component.
+*/
+
+import {  push } from 'react-router-redux';
+import { 
+    GET_DATA_PROFILE,
+    UPDATE_DATA_PROFILE,
+    START_PROCESSING_FORM, 
+    SUBMIT_SUCCESS,
+    SUBMIT_FAILED } from './<%=func._.kebabCase(formFileName)%>-action-type';
+import {AtiMessage} from 'ati-react-web';
+
+/**
+* This is function to simulate submitting form to the backend server
+* you can replace this function with your function as needed
+* for example, if data firstname not user, system will be shown alert/notification validation.
+*/
+
+const simulateSubmitToServer = (data) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            if(data.firstname.indexOf('user') > -1){
+                resolve(data)
+            }else{
+                reject({msg: 'Nama Harus user'})
+            }
+        },5000)
+    })
+}
+
+/**
+* This is function submitForm used for submitting all forms.
+* Which one this process just initiate loading form or simulate update data to server.
+*/
+
+export const submitForm = (params)=>{
+    console.log(params);
+    return (dispatch)=>{
+        //just initiate loading form
+        dispatch(startProcessingForm(params));
+        
+        //simulate update data to server
+        simulateSubmitToServer(params).then((data) => {
+             dispatch(processSuccess())
+             AtiMessage({type: 'success', message: 'Successfully update data profile..', duration: 10})
+        },(errors) => {
+            dispatch(processFailed())
+            AtiMessage({type: 'error', message: errors.msg, duration: 10})
+        });     
+    }
+};
+
+const startProcessingForm = (params)=>{
+    return {
+        type: START_PROCESSING_FORM,
+        payload: params,
+    };
+}
+
+const processSuccess = ()=>{
+    return {
+        type: SUBMIT_SUCCESS
+    };
+}
+
+const processFailed = ()=>{
+    return {
+        type: SUBMIT_FAILED
+    };
+}
+
+const getUpdateDataParam = (params)=>{
+    return {
+        type: UPDATE_DATA_PROFILE,
+        payload: params,
+    };
+}
+
+const getInitialData = () => {
+    //get data from server then dispath to update store
+}

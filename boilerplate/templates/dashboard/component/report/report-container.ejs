@@ -1,0 +1,39 @@
+/**
+* Report-container is a component part of dashboard content.
+* This component used to display reports in the form of bars or charts.
+*/
+
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+const defaultStyle = {
+    backgroundColor : "#ffffff",
+    paddingLeft: '20px',
+    paddingTop : '5px',
+    color : 'grey'
+}
+
+class ReportContainer extends Component{
+    static defaultProps = {
+        title: '',
+        style: {}
+    }
+
+    static propTypes = {
+        title: PropTypes.string,
+        style: PropTypes.object,
+    }
+
+    render(){
+        const {title, style, children} = this.props;
+        const containerStyle = {...defaultStyle, ...style}
+        return(
+            <div className = "dashboard-item gray-border" style = {containerStyle}>
+                <p style = {{fontSize : '20px'}}><b>{title}</b></p>
+                {children}
+            </div>
+        )
+    }
+}
+
+export default ReportContainer;

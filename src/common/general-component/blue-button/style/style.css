@@ -1,0 +1,32 @@
+  .blue-button{
+    min-height: 6vh;
+    min-width: 10vw;
+    box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16) !important;
+    border: solid 0.5px #037daa !important;
+    border-radius: 10px;
+    background-color: #037daa !important;
+    height: 60%;
+    font-size: 16px;
+  }
+
+  .blue-button span{
+    font-size: 1.0rem !important;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.75vh;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .blue-button i{
+    font-size: 1.7vh;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+  }

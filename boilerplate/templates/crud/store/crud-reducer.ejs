@@ -1,0 +1,50 @@
+import { TOOGLE_LOADING, SET_ACCOUNTS, FILTER_ACCOUNTS, GET_FIRST_LOADED, SET_ACCOUNT } from "./<%=func._.kebabCase(crudFileName)%>-action-type";
+
+const initialState = {
+    listAccount: [],
+    listAccountTemp: [],
+    loading: false,
+    listData:[],
+    account:{
+        name : '',
+        email : '',
+        account_number : '',
+    },
+};
+
+const handler = (currentState)=>{
+    const toogleLoading = ()=>{
+        return {...currentState,loading:!currentState.loading};
+    }
+    const setAccounts = (accounts)=>{
+        return {...currentState,listAccount:accounts,listAccountTemp:accounts};
+    }
+    const filterAccounts = (accounts)=>{
+        return {...currentState,listAccount:accounts};
+    }
+    const getFirstLoadedAccount = ()=>{
+        return {...currentState,listAccount:currentState.listAccountTemp};
+    }
+    const setAccount = (payload)=>{
+        return {...currentState,listData:payload.listData,account:payload.account};
+    }
+    return {toogleLoading,setAccounts,filterAccounts,getFirstLoadedAccount,setAccount};
+}
+
+export default (state = initialState, action)=>{
+    const {payload,type} = action;
+    switch(type){
+        case TOOGLE_LOADING:
+            return handler(state).toogleLoading();
+        case SET_ACCOUNTS:
+            return handler(state).setAccounts(payload);
+        case FILTER_ACCOUNTS:
+            return handler(state).filterAccounts(payload);
+        case SET_ACCOUNT:
+            return handler(state).setAccount(payload);
+        case GET_FIRST_LOADED:
+            return handler(state).getFirstLoadedAccount();
+        default :
+            return state;
+    }
+}

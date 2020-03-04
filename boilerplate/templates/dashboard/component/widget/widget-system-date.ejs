@@ -1,0 +1,32 @@
+/**
+* This component is part of the widget which is a base widget.
+* And is used to displays date information on this system.
+*/
+
+import React, {Component} from 'react';
+import Widget from './base-widget';
+
+class WidgetSystemDate extends Component {
+    getCurrentDate = () => {
+        const today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth()+1; //January is 0!
+        let yyyy = today.getFullYear();
+        if(dd<10)dd='0'+dd;
+        if(mm<10)mm='0'+mm; 
+        return (dd+'/'+mm+'/'+yyyy);
+    }
+    
+    render(){
+        return(
+            <Widget
+                backgroundColor="#7ebfdb"
+                icon="calendar"
+                title="System Date"
+                value={this.getCurrentDate()}                            
+            />
+        );
+    }
+}
+
+export default WidgetSystemDate;

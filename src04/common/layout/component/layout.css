@@ -1,0 +1,171 @@
+.trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: color .3s;
+}
+  
+.trigger:hover {
+    color: #1890ff;
+}
+
+.popover-container > .ant-popover-inner {
+    border-radius: 0%;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
+
+.account-menu{
+    float: right;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3px;
+    margin-top: 35px;
+    max-width: 55px;
+    min-width: 55px;
+}
+
+.page {
+    background-color: white !important;
+    /* min-height: 360px; */
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: 0 2.5px 10px 0 rgba(0, 0, 0, 0.03);
+}
+
+.bordered {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 0.5px solid #e6e7e9;
+    border-radius: 10px;
+}
+
+.div-title {
+    font-family: 'Avenir Next LT Pro Bold' !important;
+    font-size: 2vh;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #062638;
+}
+
+.image-menu {
+    width: 25px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+.image-icon {
+    height: 12px;
+}
+
+.image-icon-drawer {
+    height: 16px;
+}
+
+.ant-layout-sider-collapsed {
+    max-width: 167px !important;
+    min-width: 167px !important;
+}
+
+.ant-layout-sider-collapsed .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-top: 35px;
+    max-width: 55px;
+    min-width: 55px;
+}
+
+
+.ant-layout-sider-collapsed .ant-menu-inline-collapsed {
+    width: 100%;
+    text-align: center;
+}
+
+.ant-layout-sider-collapsed .image-menu {
+    position: unset;
+    justify-content: center;
+    display: flex;
+    width: 25px;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.ant-layout-header {
+    line-height: 40px !important;
+}
+
+.title-menu {
+    color: #a9a9a9 !important;
+}
+
+.icon-menu {
+    position: relative;
+    left: 125px;
+}
+
+.ant-layout-sider-collapsed .icon-menu {
+    display: block;
+}
+
+.hidden {
+    display:none;
+}
+
+.close-button {
+    min-width: 25px;
+    min-height: 25px;
+    background-color: #ffffff !important;
+    border-color: #fff !important;
+    padding-right: 15px;
+}
+.close-button i {
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000;
+}
+
+/* -----------------------------------------layout margin----------------------------------------- */
+.ml-2 {
+    margin-left: 2px;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+/* -----------------------------------------end of layout margin----------------------------------------- */

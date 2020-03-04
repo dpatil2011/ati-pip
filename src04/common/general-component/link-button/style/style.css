@@ -1,0 +1,26 @@
+.link-button {
+    background:none!important;
+    border:none!important; 
+    padding:5px!important;
+    cursor:pointer;
+}
+
+.link-button span {
+    color:#45425d;
+    font-size: 0.9vw !important;
+    font-weight: 500 !important;
+}
+
+.link-button i {
+    color:#45425d;
+    font-size: 0.9vw !important;
+    font-weight: 500 !important;
+}
+
+.link-button:hover {
+    color: lightgreen;
+}
+
+.link-button:active {
+    color: hotpink;
+} 

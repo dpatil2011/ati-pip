@@ -1,0 +1,185 @@
+.user-button {
+    display: inline-block;
+    width: 93%;
+    margin-left: 3%;
+    text-align: left;
+    vertical-align: middle;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: #1c1f30;
+    background: -webkit-gradient(linear, left top, left bottom, from(#1c1f30), to(#1c1f30));
+    background: -moz-linear-gradient(top, #1c1f30, #1c1f30);
+    background: linear-gradient(to bottom, #1c1f30, #1c1f30);
+    font: normal normal bold 14px arial;
+    color: #4e4e4e !important;
+    text-decoration: none;
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
+.user-button:hover, .user-button:focus {
+    background: #1c1f30;
+    background: -webkit-gradient(linear, left top, left bottom, from(#1c1f30), to(#1c1f30));
+    background: -moz-linear-gradient(top, #1c1f30, #1c1f30);
+    background: linear-gradient(to bottom, #1c1f30, #1c1f30);
+    color: #4e4e4e;
+    text-decoration: none;
+}
+.user-button:active {
+    background: #bdbdbd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#bdbdbd), to(#f4f5f8));
+    background: -moz-linear-gradient(top, #bdbdbd, #f4f5f8);
+    background: linear-gradient(to bottom, #bdbdbd, #f4f5f8);
+}
+.user-button:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    position: relative;
+    left: -12px;
+    background: url("../../../assets/images/logo-avatar.png") no-repeat left center transparent;
+    background-size: 100% 100%;
+}
+
+.user-button:after{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 7px;
+    width: 11px;
+    line-height: 20px;
+    position: relative;
+    top: 7px;
+    left: 42%;
+    background: url("../../../assets/images/logo-arrow-logout.png") no-repeat left center transparent;
+    background-size: 100% 100%;
+}
+
+svg.Popover-tip{
+    display: none !important;
+}
+
+.logout-button {
+    display: inline-block;
+    text-align: left;
+    padding: 16px 18px;
+    width: 85%;
+    border-radius: 50px;
+    background: #ffffff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+    background: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background: linear-gradient(to bottom, #ffffff, #ffffff);
+    font: normal normal bold 14px arial;
+    color: #2a2e43 !important;
+    text-decoration: none;
+    box-shadow: 0 2.5px 8px 0 rgba(0, 0, 0, 0.16);
+}
+.logout-button:hover, .logout-button:focus {
+    background: #ffffff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+    background: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background: linear-gradient(to bottom, #ffffff, #ffffff);
+    color: #2a2e43;
+    text-decoration: none;
+}
+.logout-button:active {
+    background: #bdbdbd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#bdbdbd), to(#ffffff));
+    background: -moz-linear-gradient(top, #bdbdbd, #ffffff);
+    background: linear-gradient(to bottom, #bdbdbd, #ffffff);
+}
+.logout-button:after{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    line-height: 24px;
+    position: relative;
+    top: 5%;
+    left: 42%;
+    background: url("../../../assets/images/logout.png") no-repeat left center transparent;
+    background-size: 100% 100%;
+}
+
+.ant-layout-sider-collapsed {
+    max-width: 120px !important;
+    min-width: 120px !important;
+}
+
+.ant-layout-sider-collapsed .user-button {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    text-align: center;
+    position: relative;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.ant-layout-sider-collapsed .user-button::before {
+    position: unset;
+    justify-content: center;
+    margin: auto !important;
+    display: flex !important;
+    margin-bottom: 8px !important;
+}
+
+.ant-layout-sider-collapsed .user-button::after {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    top: unset;
+    left: 5px;
+    height: 10px;
+    margin: unset;
+    line-height: 7px;
+}
+
+.username {
+    width: 40px;
+    height: 7px;
+    font-family: 'Avenir Next LT Pro Regular';
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.ant-layout-sider-collapsed .username {
+    margin-top: 5px;
+}
+
+.pop-over-logout-collapsed {
+    left: 5px !important;
+    right: 100px !important;
+}
+
+.pop-over-logout-collapsed .logout-button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 16px 18px;
+    width: 55%;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #ffffff, #ffffff);
+    font: normal normal bold 14px arial;
+    color: #2a2e43 !important;
+    text-decoration: none;
+    box-shadow: 0 2.5px 8px 0 rgba(0, 0, 0, 0.16);
+}
+
+.pop-over-logout-collapsed .logout-button::after {
+    content: "\A0";
+    display: inline-block;
+    height: 13px;
+    width: 13px;
+    line-height: 12px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+    top: 0px;
+    left: 24px;
+}

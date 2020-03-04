@@ -1,0 +1,129 @@
+{
+    "name":"Dashboard Screen",
+    "description":"",
+    "params":{
+        "dashboardFileName":{
+            "type":"text",
+            "message": "Dashboard Name",
+            "validations":["required"]
+        },
+        "dashboardComponentName":{
+            "type":"text",
+            "message": "Dashboard Component Name",
+            "validations":["required"]
+        },
+        "dashboardReducerKey":{
+            "type":"text",
+            "message": "Dashboard Reducer Key",
+            "validations":["required"]
+        }
+    },
+    "context":{
+        "appTarget":"src/app/dashboard",
+        "moduleTarget":"src/modules/dashboard",
+        "routeConfigPath": "src/common/route",
+        "reducerConfigPath": "src/common/store"
+    },
+    "steps":[
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/dashboard-page.ejs",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(dashboardFileName)%>-page.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/component/report/report-container.ejs",
+            "target":"<%=context.moduleTarget%>/component/report/report-container.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/component/widget/base-widget.ejs",
+            "target":"<%=context.moduleTarget%>/component/widget/<%=func._.kebabCase(dashboardFileName)%>/base-widget.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/component/widget/widget-email.ejs",
+            "target":"<%=context.moduleTarget%>/component/widget/<%=func._.kebabCase(dashboardFileName)%>/widget-email.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/component/widget/widget-role.ejs",
+            "target":"<%=context.moduleTarget%>/component/widget/<%=func._.kebabCase(dashboardFileName)%>/widget-role.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/component/widget/widget-system-date.ejs",
+            "target":"<%=context.moduleTarget%>/component/widget/<%=func._.kebabCase(dashboardFileName)%>/widget-system-date.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/component/widget/widget-user.ejs",
+            "target":"<%=context.moduleTarget%>/component/widget/<%=func._.kebabCase(dashboardFileName)%>/widget-user.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/component/dashboard.ejs",
+            "target":"<%=context.moduleTarget%>/component/<%=func._.kebabCase(dashboardComponentName)%>.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/store/dashboard-action-type.ejs",
+            "target":"<%=context.moduleTarget%>/store/dashboard-action-type.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/store/dashboard-action.ejs",
+            "target":"<%=context.moduleTarget%>/store/dashboard-action.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/store/dashboard-reducer.ejs",
+            "target":"<%=context.moduleTarget%>/store/dashboard-reducer.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"dashboard/style/dashboard-style.ejs",
+            "target":"<%=context.moduleTarget%>/style/<%=func._.kebabCase(dashboardComponentName)%>-style.css"
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.moduleTarget%>/store/dashboard-reducer.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"router:routerReducer,",
+                        "templateName":"dashboard/redux-config/dashboard-template.ejs"
+                    },
+                    {
+                        "matches":"import { createStore,combineReducers, applyMiddleware } from \"redux\";",
+                        "templateName":"dashboard/redux-config/dashboard-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.reducerConfigPath%>/index.js",
+                "addNewLine":true
+            }
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(dashboardFileName)%>-page.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"child\\: \\[",
+                        "templateName":"dashboard/navigation/dashboard-route.ejs"
+                    },
+                    {
+                        "matches":"// start import component",
+                        "templateName":"dashboard/navigation/dashboard-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.routeConfigPath%>/router-config.js",
+                "addNewLine":true
+            }
+        }
+    ]
+}

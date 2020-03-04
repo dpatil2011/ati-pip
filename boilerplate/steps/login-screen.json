@@ -1,0 +1,115 @@
+{
+    
+    "name":"Login Screen",
+    "description":"Login Screen",
+    "params":{
+        "urlAccessPath":{
+            "type":"text",
+            "message": "Url route to access login page",
+            "validations":["required"]
+        },
+        "loginFileName":{
+            "type":"text",
+            "message": "Login Page File Name",
+            "validations":["required"]
+        },
+        "loginComponentFileName":{
+            "type":"text",
+            "message": "Login Component File Name",
+            "validations":["required"]
+        },
+        "loginTitle":{
+            "type":"text",
+            "message": "Application Login Title ",
+            "validations":["required"]
+        },
+        "loginReducerKey":{
+            "type":"text",
+            "message": "Login Reducer key",
+            "validations":["required"]
+        },
+        "module":{
+            "type":"text",
+            "validations":["required"]
+        }
+    },
+    "context":{
+        "appTarget":"src/app/login",
+        "moduleTarget":"src/modules/<%=module%>",
+        "routeConfigPath": "src/common/route",
+        "reducerConfigPath": "src/common/store"
+    },
+    "steps":[
+        {
+            "type":"create-files-by-template",
+            "templateName":"login/login-page.ejs",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(loginFileName)%>.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"login/component/login.ejs",
+            "target":"<%=context.moduleTarget%>/component/<%=func._.kebabCase(loginComponentFileName)%>.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"login/component/login.css",
+            "target":"<%=context.moduleTarget%>/component/login.css"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"login/store/login-action-type.ejs",
+            "target":"<%=context.moduleTarget%>/store/login-action-type.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"login/store/login-action.ejs",
+            "target":"<%=context.moduleTarget%>/store/login-action.js"
+        },
+        {
+            "type":"create-files-by-template",
+            "templateName":"login/store/login-reducer.ejs",
+            "target":"<%=context.moduleTarget%>/store/login-reducer.js"
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.moduleTarget%>/store/login-reducer.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"router:routerReducer,",
+                        "templateName":"login/redux-config/redux-template.ejs"
+                    },
+                    {
+                        "matches":"import { createStore,combineReducers, applyMiddleware } from \"redux\";",
+                        "templateName":"login/redux-config/redux-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.reducerConfigPath%>/index.js",
+                "addNewLine":true
+            }
+        },
+        {
+            "type":"target-is-exists",
+            "target":"<%=context.appTarget%>/<%=func._.kebabCase(loginFileName)%>.js",
+            "whenExists": {
+                "type":"insert-templates-to-file",
+                "templates":[
+                    {
+                        "matches":"// start non nested component",
+                        "templateName":"login/navigation/login-route.ejs"
+                    },
+                    {
+                        "matches":"// start import component",
+                        "templateName":"login/navigation/login-import.ejs"
+                    }
+    
+                ],
+                "target":"<%=context.routeConfigPath%>/router-config.js",
+                "addNewLine":true
+            }
+        }
+
+    ]
+}
